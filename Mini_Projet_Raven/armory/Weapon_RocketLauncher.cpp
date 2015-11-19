@@ -11,32 +11,32 @@
 //-----------------------------------------------------------------------------
 RocketLauncher::RocketLauncher(Raven_Bot*   owner):
 
-                      Raven_Weapon(type_rocket_launcher,
-                                   script->GetInt("RocketLauncher_DefaultRounds"),
-                                   script->GetInt("RocketLauncher_MaxRoundsCarried"),
-                                   script->GetDouble("RocketLauncher_FiringFreq"),
-                                   script->GetDouble("RocketLauncher_IdealRange"),
-                                   script->GetDouble("Rocket_MaxSpeed"),
-                                   owner)
+	Raven_Weapon(type_rocket_launcher,
+	script->GetInt("RocketLauncher_DefaultRounds"),
+	script->GetInt("RocketLauncher_MaxRoundsCarried"),
+	script->GetDouble("RocketLauncher_FiringFreq"),
+	script->GetDouble("RocketLauncher_IdealRange"),
+	script->GetDouble("Rocket_MaxSpeed"),
+	owner)
 {
-    //setup the vertex buffer
-  const int NumWeaponVerts = 8;
-  const Vector2D weapon[NumWeaponVerts] = {Vector2D(0, -3),
-                                           Vector2D(6, -3),
-                                           Vector2D(6, -1),
-                                           Vector2D(15, -1),
-                                           Vector2D(15, 1),
-                                           Vector2D(6, 1),
-                                           Vector2D(6, 3),
-                                           Vector2D(0, 3)
-                                           };
-  for (int vtx=0; vtx<NumWeaponVerts; ++vtx)
-  {
-    m_vecWeaponVB.push_back(weapon[vtx]);
-  }
+	//setup the vertex buffer
+	const int NumWeaponVerts = 8;
+	const Vector2D weapon[NumWeaponVerts] = {Vector2D(0, -3),
+		Vector2D(6, -3),
+		Vector2D(6, -1),
+		Vector2D(15, -1),
+		Vector2D(15, 1),
+		Vector2D(6, 1),
+		Vector2D(6, 3),
+		Vector2D(0, 3)
+	};
+	for (int vtx=0; vtx<NumWeaponVerts; ++vtx)
+	{
+		m_vecWeaponVB.push_back(weapon[vtx]);
+	}
 
-  //setup the fuzzy module
-  InitializeFuzzyModule();
+	//setup the fuzzy module
+	InitializeFuzzyModule();
 
 }
 
@@ -45,19 +45,19 @@ RocketLauncher::RocketLauncher(Raven_Bot*   owner):
 //-----------------------------------------------------------------------------
 inline void RocketLauncher::ShootAt(Vector2D pos)
 { 
-  if (NumRoundsRemaining() > 0 && isReadyForNextShot())
-  {
-    //fire off a rocket!
-    m_pOwner->GetWorld()->AddRocket(m_pOwner, pos);
+	if (NumRoundsRemaining() > 0 && isReadyForNextShot())
+	{
+		//fire off a rocket!
+		m_pOwner->GetWorld()->AddRocket(m_pOwner, pos);
 
-    m_iNumRoundsLeft--;
+		m_iNumRoundsLeft--;
 
-    UpdateTimeWeaponIsNextAvailable();
+		UpdateTimeWeaponIsNextAvailable();
 
-    //add a trigger to the game so that the other bots can hear this shot
-    //(provided they are within range)
-    m_pOwner->GetWorld()->GetMap()->AddSoundTrigger(m_pOwner, script->GetDouble("RocketLauncher_SoundRange"));
-  }
+		//add a trigger to the game so that the other bots can hear this shot
+		//(provided they are within range)
+		m_pOwner->GetWorld()->GetMap()->AddSoundTrigger(m_pOwner, script->GetDouble("RocketLauncher_SoundRange"));
+	}
 }
 
 //---------------------------- Desirability -----------------------------------
@@ -65,20 +65,20 @@ inline void RocketLauncher::ShootAt(Vector2D pos)
 //-----------------------------------------------------------------------------
 double RocketLauncher::GetDesirability(double DistToTarget)
 {
-  if (m_iNumRoundsLeft == 0)
-  {
-    m_dLastDesirabilityScore = 0;
-  }
-  else
-  {
-    //fuzzify distance and amount of ammo
-    m_FuzzyModule.Fuzzify("DistToTarget", DistToTarget);
-    m_FuzzyModule.Fuzzify("AmmoStatus", (double)m_iNumRoundsLeft);
+	if (m_iNumRoundsLeft == 0)
+	{
+		m_dLastDesirabilityScore = 0;
+	}
+	else
+	{
+		//fuzzify distance and amount of ammo
+		m_FuzzyModule.Fuzzify("DistToTarget", DistToTarget);
+		m_FuzzyModule.Fuzzify("AmmoStatus", (double)m_iNumRoundsLeft);
 
-    m_dLastDesirabilityScore = m_FuzzyModule.DeFuzzify("Desirability", FuzzyModule::max_av);
-  }
+		m_dLastDesirabilityScore = m_FuzzyModule.DeFuzzify("Desirability", FuzzyModule::max_av);
+	}
 
-  return m_dLastDesirabilityScore;
+	return m_dLastDesirabilityScore;
 }
 
 //-------------------------  InitializeFuzzyModule ----------------------------
@@ -87,33 +87,58 @@ double RocketLauncher::GetDesirability(double DistToTarget)
 //-----------------------------------------------------------------------------
 void RocketLauncher::InitializeFuzzyModule()
 {
-  FuzzyVariable& DistToTarget = m_FuzzyModule.CreateFLV("DistToTarget");
-  FzSet& Target_Close = DistToTarget.AddLeftShoulderSet("Target_Close",0,25,150);
-  FzSet& Target_Medium = DistToTarget.AddTriangularSet("Target_Medium",25,150,300);
-  FzSet& Target_Far = DistToTarget.AddRightShoulderSet("Target_Far",150,300,1000);
+	FuzzyVariable& DistToTarget = m_FuzzyModule.CreateFLV("DistToTarget");
 
-  FuzzyVariable& Desirability = m_FuzzyModule.CreateFLV("Desirability"); 
-  FzSet& VeryDesirable = Desirability.AddRightShoulderSet("VeryDesirable", 50, 75, 100);
-  FzSet& Desirable = Desirability.AddTriangularSet("Desirable", 25, 50, 75);
-  FzSet& Undesirable = Desirability.AddLeftShoulderSet("Undesirable", 0, 25, 50);
+	FzSet& Target_Very_Close = DistToTarget.AddLeftShoulderSet("Target_Very_Close",0,25,50);
+	FzSet& Target_Close = DistToTarget.AddLeftShoulderSet("Target_Close", 35, 100, 150);
+	FzSet& Target_Medium = DistToTarget.AddTriangularSet("Target_Medium",125,200,300);
+	FzSet& Target_Far = DistToTarget.AddLeftShoulderSet("Target_Far", 275, 400, 500);
+	FzSet& Target_Very_Far = DistToTarget.AddRightShoulderSet("Target_Very_Far",475,600,1000);
 
-  FuzzyVariable& AmmoStatus = m_FuzzyModule.CreateFLV("AmmoStatus");
-  FzSet& Ammo_Loads = AmmoStatus.AddRightShoulderSet("Ammo_Loads", 10, 30, 100);
-  FzSet& Ammo_Okay = AmmoStatus.AddTriangularSet("Ammo_Okay", 0, 10, 30);
-  FzSet& Ammo_Low = AmmoStatus.AddTriangularSet("Ammo_Low", 0, 0, 10);
+	FuzzyVariable& Desirability = m_FuzzyModule.CreateFLV("Desirability"); 
+	FzSet& VeryDesirable = Desirability.AddRightShoulderSet("VeryDesirable", 80, 90, 100);
+	FzSet& Medium_VeryDesirable = Desirability.AddLeftShoulderSet("Medium_VeryDesirable", 60, 70, 85);
+	FzSet& Desirable = Desirability.AddTriangularSet("Desirable", 40, 50, 65);
+	FzSet& Undesirable = Desirability.AddLeftShoulderSet("Undesirable", 20, 30, 45);
+	FzSet& VeryUndesirable = Desirability.AddLeftShoulderSet("VeryUndesirable", 0, 10, 25);
+
+	FuzzyVariable& AmmoStatus = m_FuzzyModule.CreateFLV("AmmoStatus");
+	FzSet& Ammo_Full = AmmoStatus.AddTriangularSet("Ammo_Full", 35, 50, 100);
+	FzSet& Ammo_Loads = AmmoStatus.AddRightShoulderSet("Ammo_Loads", 18, 25, 40);
+	FzSet& Ammo_Okay = AmmoStatus.AddTriangularSet("Ammo_Okay", 4, 10, 20);
+	FzSet& Ammo_Low = AmmoStatus.AddTriangularSet("Ammo_Low", 1, 3, 5);
+	FzSet& Ammo_Empty = AmmoStatus.AddTriangularSet("Ammo_Empty", 0, 0, 2);
 
 
-  m_FuzzyModule.AddRule(FzAND(Target_Close, Ammo_Loads), Undesirable);
-  m_FuzzyModule.AddRule(FzAND(Target_Close, Ammo_Okay), Undesirable);
-  m_FuzzyModule.AddRule(FzAND(Target_Close, Ammo_Low), Undesirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Very_Close, Ammo_Loads), VeryUndesirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Very_Close, Ammo_Okay), VeryUndesirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Very_Close, Ammo_Low), VeryUndesirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Very_Close, Ammo_Empty), VeryUndesirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Very_Close, Ammo_Full), VeryUndesirable);
 
-  m_FuzzyModule.AddRule(FzAND(Target_Medium, Ammo_Loads), VeryDesirable);
-  m_FuzzyModule.AddRule(FzAND(Target_Medium, Ammo_Okay), VeryDesirable);
-  m_FuzzyModule.AddRule(FzAND(Target_Medium, Ammo_Low), Desirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Close, Ammo_Loads), Undesirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Close, Ammo_Okay), Undesirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Close, Ammo_Low), VeryUndesirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Close, Ammo_Empty), VeryUndesirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Close, Ammo_Full), Undesirable);
 
-  m_FuzzyModule.AddRule(FzAND(Target_Far, Ammo_Loads), Desirable);
-  m_FuzzyModule.AddRule(FzAND(Target_Far, Ammo_Okay), Undesirable);
-  m_FuzzyModule.AddRule(FzAND(Target_Far, Ammo_Low), Undesirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Medium, Ammo_Loads), VeryDesirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Medium, Ammo_Okay), VeryDesirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Medium, Ammo_Low), Medium_VeryDesirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Medium, Ammo_Empty), Desirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Medium, Ammo_Full), VeryDesirable);
+
+	m_FuzzyModule.AddRule(FzAND(Target_Far, Ammo_Loads), Desirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Far, Ammo_Okay), Desirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Far, Ammo_Low), Undesirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Far, Ammo_Empty), Undesirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Far, Ammo_Full), Desirable);
+
+	m_FuzzyModule.AddRule(FzAND(Target_Very_Far, Ammo_Loads), Desirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Very_Far, Ammo_Okay), Undesirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Very_Far, Ammo_Low), VeryUndesirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Very_Far, Ammo_Empty), VeryUndesirable);
+	m_FuzzyModule.AddRule(FzAND(Target_Very_Far, Ammo_Full), Desirable);
 }
 
 
@@ -121,13 +146,13 @@ void RocketLauncher::InitializeFuzzyModule()
 //-----------------------------------------------------------------------------
 void RocketLauncher::Render()
 {
-    m_vecWeaponVBTrans = WorldTransform(m_vecWeaponVB,
-                                   m_pOwner->Pos(),
-                                   m_pOwner->Facing(),
-                                   m_pOwner->Facing().Perp(),
-                                   m_pOwner->Scale());
+	m_vecWeaponVBTrans = WorldTransform(m_vecWeaponVB,
+		m_pOwner->Pos(),
+		m_pOwner->Facing(),
+		m_pOwner->Facing().Perp(),
+		m_pOwner->Scale());
 
-  gdi->RedPen();
+	gdi->RedPen();
 
-  gdi->ClosedShape(m_vecWeaponVBTrans);
+	gdi->ClosedShape(m_vecWeaponVBTrans);
 }
