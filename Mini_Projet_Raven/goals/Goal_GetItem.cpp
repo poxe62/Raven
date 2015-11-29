@@ -8,6 +8,9 @@
 
 #include "Goal_Wander.h"
 #include "Goal_FollowPath.h"
+#include "Goal_DodgeSideToSide.h"
+
+#include "Goal_SeekToPosition.h"
 
 
 int ItemTypeToGoalType(int gt)
@@ -50,6 +53,7 @@ void Goal_GetItem::Activate()
   //so for appearances sake it just wanders
   AddSubgoal(new Goal_Wander(m_pOwner));
 
+
 }
 
 //-------------------------- Process ------------------------------------------
@@ -65,6 +69,8 @@ int Goal_GetItem::Process()
 
   else
   {
+
+	  
     //process the subgoals
     m_iStatus = ProcessSubgoals();
   }
@@ -90,6 +96,8 @@ bool Goal_GetItem::HandleMessage(const Telegram& msg)
 
       AddSubgoal(new Goal_FollowPath(m_pOwner,
                                      m_pOwner->GetPathPlanner()->GetPath()));
+
+	  	  
 
       //get the pointer to the item
       m_pGiverTrigger = static_cast<Raven_Map::TriggerType*>(msg.ExtraInfo);

@@ -43,6 +43,8 @@ LRESULT CALLBACK WindowProc (HWND   hwnd,
    //these hold the dimensions of the client window area
 	 static int cxClient, cyClient; 
 
+
+
 	 //used to create the back buffer
    static HDC		hdcBackBuffer;
    static HBITMAP	hBitmap;

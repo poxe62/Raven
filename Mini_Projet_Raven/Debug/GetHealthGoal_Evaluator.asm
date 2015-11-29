@@ -791,9 +791,9 @@ _colors	DD	0ffH
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG151362 DB	'H: ', 00H
+$SG151399 DB	'H: ', 00H
 _pi	DQ	0400921f9f01b866er		; 3.14159
-$SG151460 DB	', ', 00H
+$SG151497 DB	', ', 00H
 CONST	ENDS
 ;	COMDAT ?is_modulo@_Num_int_base@std@@2_NB
 CONST	SEGMENT
@@ -1075,6 +1075,9 @@ PUBLIC	?setbuf@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAEPAV12@PAD_J@Z ;
 PUBLIC	?sync@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAEHXZ ; std::basic_streambuf<char,std::char_traits<char> >::sync
 PUBLIC	?imbue@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAEXABVlocale@2@@Z ; std::basic_streambuf<char,std::char_traits<char> >::imbue
 PUBLIC	??_G?$basic_streambuf@DU?$char_traits@D@std@@@std@@UAEPAXI@Z ; std::basic_streambuf<char,std::char_traits<char> >::`scalar deleting destructor'
+PUBLIC	?RandFloat@@YANXZ				; RandFloat
+PUBLIC	?RandBool@@YA_NXZ				; RandBool
+PUBLIC	??0Vector2D@@QAE@XZ				; Vector2D::Vector2D
 PUBLIC	??0Vector2D@@QAE@NN@Z				; Vector2D::Vector2D
 PUBLIC	??H@YA?AUVector2D@@ABU0@0@Z			; operator+
 PUBLIC	??$Clamp@NHH@@YAXAANABH1@Z			; Clamp<double,int,int>
@@ -1082,7 +1085,25 @@ PUBLIC	?GetBrain@Raven_Bot@@QAEQAVGoal_Think@@XZ	; Raven_Bot::GetBrain
 PUBLIC	?CalculateDesirability@GetHealthGoal_Evaluator@@UAENPAVRaven_Bot@@@Z ; GetHealthGoal_Evaluator::CalculateDesirability
 PUBLIC	?SetGoal@GetHealthGoal_Evaluator@@UAEXPAVRaven_Bot@@@Z ; GetHealthGoal_Evaluator::SetGoal
 PUBLIC	?RenderInfo@GetHealthGoal_Evaluator@@UAEXUVector2D@@PAVRaven_Bot@@@Z ; GetHealthGoal_Evaluator::RenderInfo
+PUBLIC	?TextAtPos@Cgdi@@QAEXNNABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; Cgdi::TextAtPos
 PUBLIC	?TextAtPos@Cgdi@@QAEXUVector2D@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; Cgdi::TextAtPos
+PUBLIC	?TransparentText@Cgdi@@QAEXXZ			; Cgdi::TransparentText
+PUBLIC	?TextColor@Cgdi@@QAEXHHH@Z			; Cgdi::TextColor
+PUBLIC	??0?$Goal@VRaven_Bot@@@@QAE@PAVRaven_Bot@@H@Z	; Goal<Raven_Bot>::Goal<Raven_Bot>
+PUBLIC	??1?$Goal@VRaven_Bot@@@@UAE@XZ			; Goal<Raven_Bot>::~Goal<Raven_Bot>
+PUBLIC	?HandleMessage@?$Goal@VRaven_Bot@@@@UAE_NABUTelegram@@@Z ; Goal<Raven_Bot>::HandleMessage
+PUBLIC	?AddSubgoal@?$Goal@VRaven_Bot@@@@UAEXPAV1@@Z	; Goal<Raven_Bot>::AddSubgoal
+PUBLIC	?isComplete@?$Goal@VRaven_Bot@@@@QBE_NXZ	; Goal<Raven_Bot>::isComplete
+PUBLIC	?isActive@?$Goal@VRaven_Bot@@@@QBE_NXZ		; Goal<Raven_Bot>::isActive
+PUBLIC	?isInactive@?$Goal@VRaven_Bot@@@@QBE_NXZ	; Goal<Raven_Bot>::isInactive
+PUBLIC	?hasFailed@?$Goal@VRaven_Bot@@@@QBE_NXZ		; Goal<Raven_Bot>::hasFailed
+PUBLIC	?GetType@?$Goal@VRaven_Bot@@@@QBEHXZ		; Goal<Raven_Bot>::GetType
+PUBLIC	?RenderAtPos@?$Goal@VRaven_Bot@@@@UBEXAAUVector2D@@PAVTypeToString@@@Z ; Goal<Raven_Bot>::RenderAtPos
+PUBLIC	?Render@?$Goal@VRaven_Bot@@@@UAEXXZ		; Goal<Raven_Bot>::Render
+PUBLIC	??_G?$Goal@VRaven_Bot@@@@UAEPAXI@Z		; Goal<Raven_Bot>::`scalar deleting destructor'
+PUBLIC	??0Goal_DodgeSideToSide@@QAE@PAVRaven_Bot@@@Z	; Goal_DodgeSideToSide::Goal_DodgeSideToSide
+PUBLIC	??1Goal_DodgeSideToSide@@UAE@XZ			; Goal_DodgeSideToSide::~Goal_DodgeSideToSide
+PUBLIC	??_GGoal_DodgeSideToSide@@UAEPAXI@Z		; Goal_DodgeSideToSide::`scalar deleting destructor'
 PUBLIC	??$ttos@N@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABNH@Z ; ttos<double>
 PUBLIC	??$?HDU?$char_traits@D@std@@V?$allocator@D@1@@std@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@PBD$$QAV10@@Z ; std::operator+<char,std::char_traits<char>,std::allocator<char> >
 PUBLIC	??$?HDU?$char_traits@D@std@@V?$allocator@D@1@@std@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@$$QAV10@PBD@Z ; std::operator+<char,std::char_traits<char>,std::allocator<char> >
@@ -1241,6 +1262,8 @@ PUBLIC	??_7?$basic_streambuf@DU?$char_traits@D@std@@@std@@6B@ ; std::basic_strea
 PUBLIC	?id@?$num_put@DV?$back_insert_iterator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@2V0locale@2@A ; std::num_put<char,std::back_insert_iterator<std::basic_string<char,std::char_traits<char>,std::allocator<char> > > >::id
 PUBLIC	?id@?$num_put@_WV?$back_insert_iterator@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@std@@@std@@2V0locale@2@A ; std::num_put<wchar_t,std::back_insert_iterator<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >::id
 PUBLIC	??_C@_1FO@BGAPCGLE@?$AAD?$AA?3?$AA?2?$AAG?$AAi?$AAt?$AA?2?$AAG?$AAi?$AAt?$AAH?$AAu?$AAb?$AAP?$AAr?$AAo?$AAj?$AAe?$AAc?$AAt?$AA?2?$AAR?$AAa?$AAv?$AAe?$AAn?$AA?2?$AAC?$AAo?$AAm?$AAm?$AAo@ ; `string'
+PUBLIC	??_7?$Goal@VRaven_Bot@@@@6B@			; Goal<Raven_Bot>::`vftable'
+PUBLIC	??_7Goal_DodgeSideToSide@@6B@			; Goal_DodgeSideToSide::`vftable'
 PUBLIC	??_C@_1FM@OACLAPGK@?$AAD?$AA?3?$AA?2?$AAM?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt?$AA?5?$AAV?$AAi?$AAs?$AAu?$AAa?$AAl?$AA?5?$AAS?$AAt?$AAu?$AAd?$AAi?$AAo?$AA?2?$AAV?$AAC?$AA?2?$AAi?$AAn@ ; `string'
 PUBLIC	??_C@_1FM@GJICDPPB@?$AAD?$AA?3?$AA?2?$AAM?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt?$AA?5?$AAV?$AAi?$AAs?$AAu?$AAa?$AAl?$AA?5?$AAS?$AAt?$AAu?$AAd?$AAi?$AAo?$AA?2?$AAV?$AAC?$AA?2?$AAi?$AAn@ ; `string'
 PUBLIC	?id@?$numpunct@D@std@@2V0locale@2@A		; std::numpunct<char>::id
@@ -1251,6 +1274,7 @@ PUBLIC	??_C@_02HIKPPMOK@Ld?$AA@			; `string'
 PUBLIC	??_C@_02CLHGNPPK@Lu?$AA@			; `string'
 PUBLIC	??_C@_02BBAHNLBA@?$CFp?$AA@			; `string'
 PUBLIC	?id@?$numpunct@_W@std@@2V0locale@2@A		; std::numpunct<wchar_t>::id
+PUBLIC	??_C@_0CB@OHIHCHGJ@Cannot?5add?5goals?5to?5atomic?5goals@ ; `string'
 PUBLIC	??_C@_02MDKMJEGG@eE?$AA@			; `string'
 PUBLIC	??_C@_02OOPEBDOJ@pP?$AA@			; `string'
 PUBLIC	??_C@_01LFCBOECM@?4?$AA@			; `string'
@@ -1379,6 +1403,16 @@ PUBLIC	??_R0?AV?$numpunct@D@std@@@8			; std::numpunct<char> `RTTI Type Descripto
 PUBLIC	??_R3?$numpunct@D@std@@8			; std::numpunct<char>::`RTTI Class Hierarchy Descriptor'
 PUBLIC	??_R2?$numpunct@D@std@@8			; std::numpunct<char>::`RTTI Base Class Array'
 PUBLIC	??_R1A@?0A@EA@?$numpunct@D@std@@8		; std::numpunct<char>::`RTTI Base Class Descriptor at (0,-1,0,64)'
+PUBLIC	??_R1A@?0A@EA@?$Goal@VRaven_Bot@@@@8		; Goal<Raven_Bot>::`RTTI Base Class Descriptor at (0,-1,0,64)'
+PUBLIC	??_R0?AV?$Goal@VRaven_Bot@@@@@8			; Goal<Raven_Bot> `RTTI Type Descriptor'
+PUBLIC	??_R3?$Goal@VRaven_Bot@@@@8			; Goal<Raven_Bot>::`RTTI Class Hierarchy Descriptor'
+PUBLIC	??_R2?$Goal@VRaven_Bot@@@@8			; Goal<Raven_Bot>::`RTTI Base Class Array'
+PUBLIC	??_R4?$Goal@VRaven_Bot@@@@6B@			; Goal<Raven_Bot>::`RTTI Complete Object Locator'
+PUBLIC	??_R4Goal_DodgeSideToSide@@6B@			; Goal_DodgeSideToSide::`RTTI Complete Object Locator'
+PUBLIC	??_R0?AVGoal_DodgeSideToSide@@@8		; Goal_DodgeSideToSide `RTTI Type Descriptor'
+PUBLIC	??_R3Goal_DodgeSideToSide@@8			; Goal_DodgeSideToSide::`RTTI Class Hierarchy Descriptor'
+PUBLIC	??_R2Goal_DodgeSideToSide@@8			; Goal_DodgeSideToSide::`RTTI Base Class Array'
+PUBLIC	??_R1A@?0A@EA@Goal_DodgeSideToSide@@8		; Goal_DodgeSideToSide::`RTTI Base Class Descriptor at (0,-1,0,64)'
 PUBLIC	__real@0000000000000000
 PUBLIC	__real@0010000000000000
 PUBLIC	__real@00800000
@@ -1389,6 +1423,7 @@ PUBLIC	__real@3ff0000000000000
 PUBLIC	__real@4000000000000000
 PUBLIC	__real@4010000000000000
 PUBLIC	__real@402e000000000000
+PUBLIC	__real@40e0000000000000
 PUBLIC	__real@4202a05f20000000
 PUBLIC	__real@4733426172c74d82
 PUBLIC	__real@7f7fffff
@@ -1400,6 +1435,7 @@ EXTRN	??3@YAXPAX@Z:PROC				; operator delete
 EXTRN	_atexit:PROC
 EXTRN	??0_Lockit@std@@QAE@H@Z:PROC			; std::_Lockit::_Lockit
 EXTRN	??1_Lockit@std@@QAE@XZ:PROC			; std::_Lockit::~_Lockit
+EXTRN	_rand:PROC
 EXTRN	_free:PROC
 EXTRN	_memmove:PROC
 EXTRN	_memcpy:PROC
@@ -1420,6 +1456,8 @@ EXTRN	?_Xlength_error@std@@YAXPBD@Z:PROC		; std::_Xlength_error
 EXTRN	?_Xout_of_range@std@@YAXPBD@Z:PROC		; std::_Xout_of_range
 EXTRN	??_Eruntime_error@std@@UAEPAXI@Z:PROC		; std::runtime_error::`vector deleting destructor'
 EXTRN	__wassert:PROC
+EXTRN	__imp__SetBkMode@8:PROC
+EXTRN	__imp__SetTextColor@8:PROC
 EXTRN	__imp__TextOutA@20:PROC
 EXTRN	??0bad_cast@std@@QAE@PBD@Z:PROC			; std::bad_cast::bad_cast
 EXTRN	??0bad_cast@std@@QAE@ABV01@@Z:PROC		; std::bad_cast::bad_cast
@@ -1457,9 +1495,15 @@ EXTRN	??_E?$basic_ostream@DU?$char_traits@D@std@@@std@@UAEPAXI@Z:PROC ; std::bas
 EXTRN	??_E?$basic_streambuf@DU?$char_traits@D@std@@@std@@UAEPAXI@Z:PROC ; std::basic_streambuf<char,std::char_traits<char> >::`vector deleting destructor'
 EXTRN	?setprecision@std@@YA?AU?$_Smanip@_J@1@_J@Z:PROC ; std::setprecision
 EXTRN	?Instance@Cgdi@@SAPAV1@XZ:PROC			; Cgdi::Instance
+EXTRN	??_E?$Goal@VRaven_Bot@@@@UAEPAXI@Z:PROC		; Goal<Raven_Bot>::`vector deleting destructor'
 EXTRN	?AddGoal_GetItem@Goal_Think@@QAEXI@Z:PROC	; Goal_Think::AddGoal_GetItem
 EXTRN	?Health@Raven_Feature@@SANPAVRaven_Bot@@@Z:PROC	; Raven_Feature::Health
 EXTRN	?DistanceToItem@Raven_Feature@@SANPAVRaven_Bot@@H@Z:PROC ; Raven_Feature::DistanceToItem
+EXTRN	?Activate@Goal_DodgeSideToSide@@UAEXXZ:PROC	; Goal_DodgeSideToSide::Activate
+EXTRN	?Process@Goal_DodgeSideToSide@@UAEHXZ:PROC	; Goal_DodgeSideToSide::Process
+EXTRN	?Render@Goal_DodgeSideToSide@@UAEXXZ:PROC	; Goal_DodgeSideToSide::Render
+EXTRN	?Terminate@Goal_DodgeSideToSide@@UAEXXZ:PROC	; Goal_DodgeSideToSide::Terminate
+EXTRN	??_EGoal_DodgeSideToSide@@UAEPAXI@Z:PROC	; Goal_DodgeSideToSide::`vector deleting destructor'
 EXTRN	??_E?$numpunct@D@std@@MAEPAXI@Z:PROC		; std::numpunct<char>::`vector deleting destructor'
 EXTRN	??_E?$basic_stringbuf@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UAEPAXI@Z:PROC ; std::basic_stringbuf<char,std::char_traits<char>,std::allocator<char> >::`vector deleting destructor'
 EXTRN	??_E?$basic_ostringstream@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UAEPAXI@Z:PROC ; std::basic_ostringstream<char,std::char_traits<char>,std::allocator<char> >::`vector deleting destructor'
@@ -1565,6 +1609,10 @@ CONST	ENDS
 CONST	SEGMENT
 __real@4202a05f20000000 DQ 04202a05f20000000r	; 1e+010
 CONST	ENDS
+;	COMDAT __real@40e0000000000000
+CONST	SEGMENT
+__real@40e0000000000000 DQ 040e0000000000000r	; 32768
+CONST	ENDS
 ;	COMDAT __real@402e000000000000
 CONST	SEGMENT
 __real@402e000000000000 DQ 0402e000000000000r	; 15
@@ -1613,6 +1661,77 @@ rtc$TMZ	ENDS
 rtc$IMZ	SEGMENT
 __RTC_InitBase.rtc$IMZ DD FLAT:__RTC_InitBase
 rtc$IMZ	ENDS
+;	COMDAT ??_R1A@?0A@EA@Goal_DodgeSideToSide@@8
+rdata$r	SEGMENT
+??_R1A@?0A@EA@Goal_DodgeSideToSide@@8 DD FLAT:??_R0?AVGoal_DodgeSideToSide@@@8 ; Goal_DodgeSideToSide::`RTTI Base Class Descriptor at (0,-1,0,64)'
+	DD	01H
+	DD	00H
+	DD	0ffffffffH
+	DD	00H
+	DD	040H
+	DD	FLAT:??_R3Goal_DodgeSideToSide@@8
+rdata$r	ENDS
+;	COMDAT ??_R2Goal_DodgeSideToSide@@8
+rdata$r	SEGMENT
+??_R2Goal_DodgeSideToSide@@8 DD FLAT:??_R1A@?0A@EA@Goal_DodgeSideToSide@@8 ; Goal_DodgeSideToSide::`RTTI Base Class Array'
+	DD	FLAT:??_R1A@?0A@EA@?$Goal@VRaven_Bot@@@@8
+rdata$r	ENDS
+;	COMDAT ??_R3Goal_DodgeSideToSide@@8
+rdata$r	SEGMENT
+??_R3Goal_DodgeSideToSide@@8 DD 00H			; Goal_DodgeSideToSide::`RTTI Class Hierarchy Descriptor'
+	DD	00H
+	DD	02H
+	DD	FLAT:??_R2Goal_DodgeSideToSide@@8
+rdata$r	ENDS
+;	COMDAT ??_R0?AVGoal_DodgeSideToSide@@@8
+_DATA	SEGMENT
+??_R0?AVGoal_DodgeSideToSide@@@8 DD FLAT:??_7type_info@@6B@ ; Goal_DodgeSideToSide `RTTI Type Descriptor'
+	DD	00H
+	DB	'.?AVGoal_DodgeSideToSide@@', 00H
+_DATA	ENDS
+;	COMDAT ??_R4Goal_DodgeSideToSide@@6B@
+rdata$r	SEGMENT
+??_R4Goal_DodgeSideToSide@@6B@ DD 00H			; Goal_DodgeSideToSide::`RTTI Complete Object Locator'
+	DD	00H
+	DD	00H
+	DD	FLAT:??_R0?AVGoal_DodgeSideToSide@@@8
+	DD	FLAT:??_R3Goal_DodgeSideToSide@@8
+rdata$r	ENDS
+;	COMDAT ??_R4?$Goal@VRaven_Bot@@@@6B@
+rdata$r	SEGMENT
+??_R4?$Goal@VRaven_Bot@@@@6B@ DD 00H			; Goal<Raven_Bot>::`RTTI Complete Object Locator'
+	DD	00H
+	DD	00H
+	DD	FLAT:??_R0?AV?$Goal@VRaven_Bot@@@@@8
+	DD	FLAT:??_R3?$Goal@VRaven_Bot@@@@8
+rdata$r	ENDS
+;	COMDAT ??_R2?$Goal@VRaven_Bot@@@@8
+rdata$r	SEGMENT
+??_R2?$Goal@VRaven_Bot@@@@8 DD FLAT:??_R1A@?0A@EA@?$Goal@VRaven_Bot@@@@8 ; Goal<Raven_Bot>::`RTTI Base Class Array'
+rdata$r	ENDS
+;	COMDAT ??_R3?$Goal@VRaven_Bot@@@@8
+rdata$r	SEGMENT
+??_R3?$Goal@VRaven_Bot@@@@8 DD 00H			; Goal<Raven_Bot>::`RTTI Class Hierarchy Descriptor'
+	DD	00H
+	DD	01H
+	DD	FLAT:??_R2?$Goal@VRaven_Bot@@@@8
+rdata$r	ENDS
+;	COMDAT ??_R0?AV?$Goal@VRaven_Bot@@@@@8
+_DATA	SEGMENT
+??_R0?AV?$Goal@VRaven_Bot@@@@@8 DD FLAT:??_7type_info@@6B@ ; Goal<Raven_Bot> `RTTI Type Descriptor'
+	DD	00H
+	DB	'.?AV?$Goal@VRaven_Bot@@@@', 00H
+_DATA	ENDS
+;	COMDAT ??_R1A@?0A@EA@?$Goal@VRaven_Bot@@@@8
+rdata$r	SEGMENT
+??_R1A@?0A@EA@?$Goal@VRaven_Bot@@@@8 DD FLAT:??_R0?AV?$Goal@VRaven_Bot@@@@@8 ; Goal<Raven_Bot>::`RTTI Base Class Descriptor at (0,-1,0,64)'
+	DD	00H
+	DD	00H
+	DD	0ffffffffH
+	DD	00H
+	DD	040H
+	DD	FLAT:??_R3?$Goal@VRaven_Bot@@@@8
+rdata$r	ENDS
 ;	COMDAT ??_R1A@?0A@EA@?$numpunct@D@std@@8
 rdata$r	SEGMENT
 ??_R1A@?0A@EA@?$numpunct@D@std@@8 DD FLAT:??_R0?AV?$numpunct@D@std@@@8 ; std::numpunct<char>::`RTTI Base Class Descriptor at (0,-1,0,64)'
@@ -2543,6 +2662,11 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_02MDKMJEGG@eE?$AA@ DB 'eE', 00H			; `string'
 CONST	ENDS
+;	COMDAT ??_C@_0CB@OHIHCHGJ@Cannot?5add?5goals?5to?5atomic?5goals@
+CONST	SEGMENT
+??_C@_0CB@OHIHCHGJ@Cannot?5add?5goals?5to?5atomic?5goals@ DB 'Cannot add '
+	DB	'goals to atomic goals', 00H			; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_02BBAHNLBA@?$CFp?$AA@
 CONST	SEGMENT
 ??_C@_02BBAHNLBA@?$CFp?$AA@ DB '%p', 00H		; `string'
@@ -2596,6 +2720,30 @@ CONST	SEGMENT
 	DB	00H, 'V', 00H, 'C', 00H, '\', 00H, 'i', 00H, 'n', 00H, 'c', 00H
 	DB	'l', 00H, 'u', 00H, 'd', 00H, 'e', 00H, '\', 00H, 'x', 00H, 's'
 	DB	00H, 't', 00H, 'r', 00H, 'i', 00H, 'n', 00H, 'g', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_7Goal_DodgeSideToSide@@6B@
+CONST	SEGMENT
+??_7Goal_DodgeSideToSide@@6B@ DD FLAT:??_R4Goal_DodgeSideToSide@@6B@ ; Goal_DodgeSideToSide::`vftable'
+	DD	FLAT:??_EGoal_DodgeSideToSide@@UAEPAXI@Z
+	DD	FLAT:?Activate@Goal_DodgeSideToSide@@UAEXXZ
+	DD	FLAT:?Process@Goal_DodgeSideToSide@@UAEHXZ
+	DD	FLAT:?Terminate@Goal_DodgeSideToSide@@UAEXXZ
+	DD	FLAT:?HandleMessage@?$Goal@VRaven_Bot@@@@UAE_NABUTelegram@@@Z
+	DD	FLAT:?AddSubgoal@?$Goal@VRaven_Bot@@@@UAEXPAV1@@Z
+	DD	FLAT:?RenderAtPos@?$Goal@VRaven_Bot@@@@UBEXAAUVector2D@@PAVTypeToString@@@Z
+	DD	FLAT:?Render@Goal_DodgeSideToSide@@UAEXXZ
+CONST	ENDS
+;	COMDAT ??_7?$Goal@VRaven_Bot@@@@6B@
+CONST	SEGMENT
+??_7?$Goal@VRaven_Bot@@@@6B@ DD FLAT:??_R4?$Goal@VRaven_Bot@@@@6B@ ; Goal<Raven_Bot>::`vftable'
+	DD	FLAT:??_E?$Goal@VRaven_Bot@@@@UAEPAXI@Z
+	DD	FLAT:__purecall
+	DD	FLAT:__purecall
+	DD	FLAT:__purecall
+	DD	FLAT:?HandleMessage@?$Goal@VRaven_Bot@@@@UAE_NABUTelegram@@@Z
+	DD	FLAT:?AddSubgoal@?$Goal@VRaven_Bot@@@@UAEXPAV1@@Z
+	DD	FLAT:?RenderAtPos@?$Goal@VRaven_Bot@@@@UBEXAAUVector2D@@PAVTypeToString@@@Z
+	DD	FLAT:?Render@?$Goal@VRaven_Bot@@@@UAEXXZ
 CONST	ENDS
 ;	COMDAT ??_C@_1FO@BGAPCGLE@?$AAD?$AA?3?$AA?2?$AAG?$AAi?$AAt?$AA?2?$AAG?$AAi?$AAt?$AAH?$AAu?$AAb?$AAP?$AAr?$AAo?$AAj?$AAe?$AAc?$AAt?$AA?2?$AAR?$AAa?$AAv?$AAe?$AAn?$AA?2?$AAC?$AAo?$AAm?$AAm?$AAo@
 CONST	SEGMENT
@@ -3146,10 +3294,43 @@ __ehfuncinfo$??$ttos@N@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@
 	DD	00H
 	DD	01H
 xdata$x	ENDS
+;	COMDAT xdata$x
 xdata$x	SEGMENT
+__unwindtable$??0Goal_DodgeSideToSide@@QAE@PAVRaven_Bot@@@Z DD 0ffffffffH
+	DD	FLAT:__unwindfunclet$??0Goal_DodgeSideToSide@@QAE@PAVRaven_Bot@@@Z$0
+__ehfuncinfo$??0Goal_DodgeSideToSide@@QAE@PAVRaven_Bot@@@Z DD 019930522H
+	DD	01H
+	DD	FLAT:__unwindtable$??0Goal_DodgeSideToSide@@QAE@PAVRaven_Bot@@@Z
+	DD	2 DUP(00H)
+	DD	2 DUP(00H)
+	DD	00H
+	DD	01H
+xdata$x	ENDS
+;	COMDAT xdata$x
+xdata$x	SEGMENT
+__unwindtable$?RenderAtPos@?$Goal@VRaven_Bot@@@@UBEXAAUVector2D@@PAVTypeToString@@@Z DD 0ffffffffH
+	DD	FLAT:__unwindfunclet$?RenderAtPos@?$Goal@VRaven_Bot@@@@UBEXAAUVector2D@@PAVTypeToString@@@Z$0
+__ehfuncinfo$?RenderAtPos@?$Goal@VRaven_Bot@@@@UBEXAAUVector2D@@PAVTypeToString@@@Z DD 019930522H
+	DD	01H
+	DD	FLAT:__unwindtable$?RenderAtPos@?$Goal@VRaven_Bot@@@@UBEXAAUVector2D@@PAVTypeToString@@@Z
+	DD	2 DUP(00H)
+	DD	2 DUP(00H)
+	DD	00H
+	DD	01H
+xdata$x	ENDS
+xdata$x	SEGMENT
+__unwindtable$?SetGoal@GetHealthGoal_Evaluator@@UAEXPAVRaven_Bot@@@Z DD 0ffffffffH
+	DD	FLAT:__unwindfunclet$?SetGoal@GetHealthGoal_Evaluator@@UAEXPAVRaven_Bot@@@Z$0
 __ehfuncinfo$?RenderInfo@GetHealthGoal_Evaluator@@UAEXUVector2D@@PAVRaven_Bot@@@Z DD 019930522H
 	DD	09H
 	DD	FLAT:__unwindtable$?RenderInfo@GetHealthGoal_Evaluator@@UAEXUVector2D@@PAVRaven_Bot@@@Z
+	DD	2 DUP(00H)
+	DD	2 DUP(00H)
+	DD	00H
+	DD	01H
+__ehfuncinfo$?SetGoal@GetHealthGoal_Evaluator@@UAEXPAVRaven_Bot@@@Z DD 019930522H
+	DD	01H
+	DD	FLAT:__unwindtable$?SetGoal@GetHealthGoal_Evaluator@@UAEXPAVRaven_Bot@@@Z
 	DD	2 DUP(00H)
 	DD	2 DUP(00H)
 	DD	00H
@@ -13747,6 +13928,698 @@ __ehhandler$??$ttos@N@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D
 text$x	ENDS
 ??$ttos@N@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABNH@Z ENDP ; ttos<double>
 ; Function compile flags: /Odtp /RTCsu
+;	COMDAT ??_GGoal_DodgeSideToSide@@UAEPAXI@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+___flags$ = 8						; size = 4
+??_GGoal_DodgeSideToSide@@UAEPAXI@Z PROC		; Goal_DodgeSideToSide::`scalar deleting destructor', COMDAT
+; _this$ = ecx
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??1Goal_DodgeSideToSide@@UAE@XZ
+	mov	eax, DWORD PTR ___flags$[ebp]
+	and	eax, 1
+	je	SHORT $LN1@scalar
+	mov	ecx, DWORD PTR _this$[ebp]
+	push	ecx
+	call	??3@YAXPAX@Z				; operator delete
+	add	esp, 4
+$LN1@scalar:
+	mov	eax, DWORD PTR _this$[ebp]
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??_GGoal_DodgeSideToSide@@UAEPAXI@Z ENDP		; Goal_DodgeSideToSide::`scalar deleting destructor'
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+;	COMDAT ??1Goal_DodgeSideToSide@@UAE@XZ
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+??1Goal_DodgeSideToSide@@UAE@XZ PROC			; Goal_DodgeSideToSide::~Goal_DodgeSideToSide, COMDAT
+; _this$ = ecx
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??1?$Goal@VRaven_Bot@@@@UAE@XZ		; Goal<Raven_Bot>::~Goal<Raven_Bot>
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??1Goal_DodgeSideToSide@@UAE@XZ ENDP			; Goal_DodgeSideToSide::~Goal_DodgeSideToSide
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\mini_projet_raven\goals\goal_dodgesidetoside.h
+;	COMDAT ??0Goal_DodgeSideToSide@@QAE@PAVRaven_Bot@@@Z
+_TEXT	SEGMENT
+_this$ = -16						; size = 4
+__$EHRec$ = -12						; size = 12
+_pBot$ = 8						; size = 4
+??0Goal_DodgeSideToSide@@QAE@PAVRaven_Bot@@@Z PROC	; Goal_DodgeSideToSide::Goal_DodgeSideToSide, COMDAT
+; _this$ = ecx
+
+; 36   :   {}
+
+	push	ebp
+	mov	ebp, esp
+	push	-1
+	push	__ehhandler$??0Goal_DodgeSideToSide@@QAE@PAVRaven_Bot@@@Z
+	mov	eax, DWORD PTR fs:0
+	push	eax
+	push	ecx
+	mov	DWORD PTR [ebp-16], -858993460		; ccccccccH
+	mov	eax, DWORD PTR ___security_cookie
+	xor	eax, ebp
+	push	eax
+	lea	eax, DWORD PTR __$EHRec$[ebp]
+	mov	DWORD PTR fs:0, eax
+	mov	DWORD PTR _this$[ebp], ecx
+	push	15					; 0000000fH
+	mov	eax, DWORD PTR _pBot$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??0?$Goal@VRaven_Bot@@@@QAE@PAVRaven_Bot@@H@Z ; Goal<Raven_Bot>::Goal<Raven_Bot>
+	mov	DWORD PTR __$EHRec$[ebp+8], 0
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [ecx], OFFSET ??_7Goal_DodgeSideToSide@@6B@
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, 16					; 00000010H
+	call	??0Vector2D@@QAE@XZ			; Vector2D::Vector2D
+	call	?RandBool@@YA_NXZ			; RandBool
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	BYTE PTR [edx+32], al
+	mov	DWORD PTR __$EHRec$[ebp+8], -1
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR __$EHRec$[ebp]
+	mov	DWORD PTR fs:0, ecx
+	pop	ecx
+	add	esp, 16					; 00000010H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+_TEXT	ENDS
+;	COMDAT text$x
+text$x	SEGMENT
+__unwindfunclet$??0Goal_DodgeSideToSide@@QAE@PAVRaven_Bot@@@Z$0:
+	mov	ecx, DWORD PTR _this$[ebp]
+	jmp	??1?$Goal@VRaven_Bot@@@@UAE@XZ		; Goal<Raven_Bot>::~Goal<Raven_Bot>
+__ehhandler$??0Goal_DodgeSideToSide@@QAE@PAVRaven_Bot@@@Z:
+	mov	edx, DWORD PTR [esp+8]
+	lea	eax, DWORD PTR [edx+12]
+	mov	ecx, DWORD PTR [edx-8]
+	xor	ecx, eax
+	call	@__security_check_cookie@4
+	mov	eax, OFFSET __ehfuncinfo$??0Goal_DodgeSideToSide@@QAE@PAVRaven_Bot@@@Z
+	jmp	___CxxFrameHandler3
+text$x	ENDS
+??0Goal_DodgeSideToSide@@QAE@PAVRaven_Bot@@@Z ENDP	; Goal_DodgeSideToSide::Goal_DodgeSideToSide
+; Function compile flags: /Odtp /RTCsu
+;	COMDAT ??_G?$Goal@VRaven_Bot@@@@UAEPAXI@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+___flags$ = 8						; size = 4
+??_G?$Goal@VRaven_Bot@@@@UAEPAXI@Z PROC			; Goal<Raven_Bot>::`scalar deleting destructor', COMDAT
+; _this$ = ecx
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??1?$Goal@VRaven_Bot@@@@UAE@XZ		; Goal<Raven_Bot>::~Goal<Raven_Bot>
+	mov	eax, DWORD PTR ___flags$[ebp]
+	and	eax, 1
+	je	SHORT $LN1@scalar
+	mov	ecx, DWORD PTR _this$[ebp]
+	push	ecx
+	call	??3@YAXPAX@Z				; operator delete
+	add	esp, 4
+$LN1@scalar:
+	mov	eax, DWORD PTR _this$[ebp]
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??_G?$Goal@VRaven_Bot@@@@UAEPAXI@Z ENDP			; Goal<Raven_Bot>::`scalar deleting destructor'
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\common\goals\goal.h
+;	COMDAT ?Render@?$Goal@VRaven_Bot@@@@UAEXXZ
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+?Render@?$Goal@VRaven_Bot@@@@UAEXXZ PROC		; Goal<Raven_Bot>::Render, COMDAT
+; _this$ = ecx
+
+; 93   :   virtual void Render(){}
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?Render@?$Goal@VRaven_Bot@@@@UAEXXZ ENDP		; Goal<Raven_Bot>::Render
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\common\goals\goal.h
+;	COMDAT ?RenderAtPos@?$Goal@VRaven_Bot@@@@UBEXAAUVector2D@@PAVTypeToString@@@Z
+_TEXT	SEGMENT
+tv155 = -56						; size = 4
+tv156 = -52						; size = 4
+$T2 = -48						; size = 28
+_this$ = -20						; size = 4
+__$ArrayPad$ = -16					; size = 4
+__$EHRec$ = -12						; size = 12
+_pos$ = 8						; size = 4
+_tts$ = 12						; size = 4
+?RenderAtPos@?$Goal@VRaven_Bot@@@@UBEXAAUVector2D@@PAVTypeToString@@@Z PROC ; Goal<Raven_Bot>::RenderAtPos, COMDAT
+; _this$ = ecx
+
+; 123  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	-1
+	push	__ehhandler$?RenderAtPos@?$Goal@VRaven_Bot@@@@UBEXAAUVector2D@@PAVTypeToString@@@Z
+	mov	eax, DWORD PTR fs:0
+	push	eax
+	sub	esp, 44					; 0000002cH
+	push	esi
+	push	edi
+	push	ecx
+	lea	edi, DWORD PTR [ebp-56]
+	mov	ecx, 11					; 0000000bH
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	pop	ecx
+	mov	eax, DWORD PTR ___security_cookie
+	xor	eax, ebp
+	mov	DWORD PTR __$ArrayPad$[ebp], eax
+	push	eax
+	lea	eax, DWORD PTR __$EHRec$[ebp]
+	mov	DWORD PTR fs:0, eax
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 124  :   pos.y += 15;
+
+	mov	eax, DWORD PTR _pos$[ebp]
+	movsd	xmm0, QWORD PTR [eax+8]
+	addsd	xmm0, QWORD PTR __real@402e000000000000
+	mov	ecx, DWORD PTR _pos$[ebp]
+	movsd	QWORD PTR [ecx+8], xmm0
+
+; 125  :   gdi->TransparentText();
+
+	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
+	mov	ecx, eax
+	call	?TransparentText@Cgdi@@QAEXXZ		; Cgdi::TransparentText
+
+; 126  :   if (isComplete()) gdi->TextColor(0,255,0);
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?isComplete@?$Goal@VRaven_Bot@@@@QBE_NXZ ; Goal<Raven_Bot>::isComplete
+	movzx	edx, al
+	test	edx, edx
+	je	SHORT $LN4@RenderAtPo
+	push	0
+	push	255					; 000000ffH
+	push	0
+	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
+	mov	ecx, eax
+	call	?TextColor@Cgdi@@QAEXHHH@Z		; Cgdi::TextColor
+$LN4@RenderAtPo:
+
+; 127  :   if (isInactive()) gdi->TextColor(0,0,0);
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?isInactive@?$Goal@VRaven_Bot@@@@QBE_NXZ ; Goal<Raven_Bot>::isInactive
+	movzx	eax, al
+	test	eax, eax
+	je	SHORT $LN3@RenderAtPo
+	push	0
+	push	0
+	push	0
+	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
+	mov	ecx, eax
+	call	?TextColor@Cgdi@@QAEXHHH@Z		; Cgdi::TextColor
+$LN3@RenderAtPo:
+
+; 128  :   if (hasFailed()) gdi->TextColor(255,0,0);
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?hasFailed@?$Goal@VRaven_Bot@@@@QBE_NXZ	; Goal<Raven_Bot>::hasFailed
+	movzx	ecx, al
+	test	ecx, ecx
+	je	SHORT $LN2@RenderAtPo
+	push	0
+	push	0
+	push	255					; 000000ffH
+	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
+	mov	ecx, eax
+	call	?TextColor@Cgdi@@QAEXHHH@Z		; Cgdi::TextColor
+$LN2@RenderAtPo:
+
+; 129  :   if (isActive()) gdi->TextColor(0,0,255);
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?isActive@?$Goal@VRaven_Bot@@@@QBE_NXZ	; Goal<Raven_Bot>::isActive
+	movzx	edx, al
+	test	edx, edx
+	je	SHORT $LN1@RenderAtPo
+	push	255					; 000000ffH
+	push	0
+	push	0
+	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
+	mov	ecx, eax
+	call	?TextColor@Cgdi@@QAEXHHH@Z		; Cgdi::TextColor
+$LN1@RenderAtPo:
+
+; 130  : 
+; 131  :   gdi->TextAtPos(pos.x, pos.y, tts->Convert(GetType())); 
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?GetType@?$Goal@VRaven_Bot@@@@QBEHXZ	; Goal<Raven_Bot>::GetType
+	mov	esi, esp
+	push	eax
+	lea	eax, DWORD PTR $T2[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _tts$[ebp]
+	mov	edx, DWORD PTR [ecx]
+	mov	ecx, DWORD PTR _tts$[ebp]
+	mov	eax, DWORD PTR [edx]
+	call	eax
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+	mov	DWORD PTR tv156[ebp], eax
+	mov	ecx, DWORD PTR tv156[ebp]
+	mov	DWORD PTR tv155[ebp], ecx
+	mov	DWORD PTR __$EHRec$[ebp+8], 0
+	mov	edx, DWORD PTR tv155[ebp]
+	push	edx
+	mov	eax, DWORD PTR _pos$[ebp]
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR [eax+8]
+	movsd	QWORD PTR [esp], xmm0
+	mov	ecx, DWORD PTR _pos$[ebp]
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR [ecx]
+	movsd	QWORD PTR [esp], xmm0
+	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
+	mov	ecx, eax
+	call	?TextAtPos@Cgdi@@QAEXNNABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; Cgdi::TextAtPos
+	mov	DWORD PTR __$EHRec$[ebp+8], -1
+	lea	ecx, DWORD PTR $T2[ebp]
+	call	??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::~basic_string<char,std::char_traits<char>,std::allocator<char> >
+
+; 132  : }
+
+	mov	ecx, DWORD PTR __$EHRec$[ebp]
+	mov	DWORD PTR fs:0, ecx
+	pop	ecx
+	pop	edi
+	pop	esi
+	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
+	xor	ecx, ebp
+	call	@__security_check_cookie@4
+	add	esp, 56					; 00000038H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+_TEXT	ENDS
+;	COMDAT text$x
+text$x	SEGMENT
+__unwindfunclet$?RenderAtPos@?$Goal@VRaven_Bot@@@@UBEXAAUVector2D@@PAVTypeToString@@@Z$0:
+	lea	ecx, DWORD PTR $T2[ebp]
+	jmp	??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::~basic_string<char,std::char_traits<char>,std::allocator<char> >
+__ehhandler$?RenderAtPos@?$Goal@VRaven_Bot@@@@UBEXAAUVector2D@@PAVTypeToString@@@Z:
+	mov	edx, DWORD PTR [esp+8]
+	lea	eax, DWORD PTR [edx+12]
+	mov	ecx, DWORD PTR [edx-56]
+	xor	ecx, eax
+	call	@__security_check_cookie@4
+	mov	ecx, DWORD PTR [edx-4]
+	xor	ecx, eax
+	call	@__security_check_cookie@4
+	mov	eax, OFFSET __ehfuncinfo$?RenderAtPos@?$Goal@VRaven_Bot@@@@UBEXAAUVector2D@@PAVTypeToString@@@Z
+	jmp	___CxxFrameHandler3
+text$x	ENDS
+?RenderAtPos@?$Goal@VRaven_Bot@@@@UBEXAAUVector2D@@PAVTypeToString@@@Z ENDP ; Goal<Raven_Bot>::RenderAtPos
+; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\common\goals\goal.h
+;	COMDAT ?GetType@?$Goal@VRaven_Bot@@@@QBEHXZ
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+?GetType@?$Goal@VRaven_Bot@@@@QBEHXZ PROC		; Goal<Raven_Bot>::GetType, COMDAT
+; _this$ = ecx
+
+; 84   :   int          GetType()const{return m_iType;}
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [eax+4]
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?GetType@?$Goal@VRaven_Bot@@@@QBEHXZ ENDP		; Goal<Raven_Bot>::GetType
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\common\goals\goal.h
+;	COMDAT ?hasFailed@?$Goal@VRaven_Bot@@@@QBE_NXZ
+_TEXT	SEGMENT
+tv66 = -8						; size = 4
+_this$ = -4						; size = 4
+?hasFailed@?$Goal@VRaven_Bot@@@@QBE_NXZ PROC		; Goal<Raven_Bot>::hasFailed, COMDAT
+; _this$ = ecx
+
+; 83   :   bool         hasFailed()const{return m_iStatus == failed;}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 8
+	mov	DWORD PTR [ebp-8], -858993460		; ccccccccH
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	cmp	DWORD PTR [eax+12], 3
+	jne	SHORT $LN3@hasFailed
+	mov	DWORD PTR tv66[ebp], 1
+	jmp	SHORT $LN4@hasFailed
+$LN3@hasFailed:
+	mov	DWORD PTR tv66[ebp], 0
+$LN4@hasFailed:
+	mov	al, BYTE PTR tv66[ebp]
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?hasFailed@?$Goal@VRaven_Bot@@@@QBE_NXZ ENDP		; Goal<Raven_Bot>::hasFailed
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\common\goals\goal.h
+;	COMDAT ?isInactive@?$Goal@VRaven_Bot@@@@QBE_NXZ
+_TEXT	SEGMENT
+tv66 = -8						; size = 4
+_this$ = -4						; size = 4
+?isInactive@?$Goal@VRaven_Bot@@@@QBE_NXZ PROC		; Goal<Raven_Bot>::isInactive, COMDAT
+; _this$ = ecx
+
+; 82   :   bool         isInactive()const{return m_iStatus == inactive;}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 8
+	mov	DWORD PTR [ebp-8], -858993460		; ccccccccH
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	cmp	DWORD PTR [eax+12], 1
+	jne	SHORT $LN3@isInactive
+	mov	DWORD PTR tv66[ebp], 1
+	jmp	SHORT $LN4@isInactive
+$LN3@isInactive:
+	mov	DWORD PTR tv66[ebp], 0
+$LN4@isInactive:
+	mov	al, BYTE PTR tv66[ebp]
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?isInactive@?$Goal@VRaven_Bot@@@@QBE_NXZ ENDP		; Goal<Raven_Bot>::isInactive
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\common\goals\goal.h
+;	COMDAT ?isActive@?$Goal@VRaven_Bot@@@@QBE_NXZ
+_TEXT	SEGMENT
+tv66 = -8						; size = 4
+_this$ = -4						; size = 4
+?isActive@?$Goal@VRaven_Bot@@@@QBE_NXZ PROC		; Goal<Raven_Bot>::isActive, COMDAT
+; _this$ = ecx
+
+; 81   :   bool         isActive()const{return m_iStatus == active;}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 8
+	mov	DWORD PTR [ebp-8], -858993460		; ccccccccH
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	cmp	DWORD PTR [eax+12], 0
+	jne	SHORT $LN3@isActive
+	mov	DWORD PTR tv66[ebp], 1
+	jmp	SHORT $LN4@isActive
+$LN3@isActive:
+	mov	DWORD PTR tv66[ebp], 0
+$LN4@isActive:
+	mov	al, BYTE PTR tv66[ebp]
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?isActive@?$Goal@VRaven_Bot@@@@QBE_NXZ ENDP		; Goal<Raven_Bot>::isActive
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\common\goals\goal.h
+;	COMDAT ?isComplete@?$Goal@VRaven_Bot@@@@QBE_NXZ
+_TEXT	SEGMENT
+tv66 = -8						; size = 4
+_this$ = -4						; size = 4
+?isComplete@?$Goal@VRaven_Bot@@@@QBE_NXZ PROC		; Goal<Raven_Bot>::isComplete, COMDAT
+; _this$ = ecx
+
+; 80   :   bool         isComplete()const{return m_iStatus == completed;} 
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 8
+	mov	DWORD PTR [ebp-8], -858993460		; ccccccccH
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	cmp	DWORD PTR [eax+12], 2
+	jne	SHORT $LN3@isComplete
+	mov	DWORD PTR tv66[ebp], 1
+	jmp	SHORT $LN4@isComplete
+$LN3@isComplete:
+	mov	DWORD PTR tv66[ebp], 0
+$LN4@isComplete:
+	mov	al, BYTE PTR tv66[ebp]
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?isComplete@?$Goal@VRaven_Bot@@@@QBE_NXZ ENDP		; Goal<Raven_Bot>::isComplete
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\common\goals\goal.h
+;	COMDAT ?AddSubgoal@?$Goal@VRaven_Bot@@@@UAEXPAV1@@Z
+_TEXT	SEGMENT
+$T1 = -16						; size = 12
+_this$ = -4						; size = 4
+_g$ = 8							; size = 4
+?AddSubgoal@?$Goal@VRaven_Bot@@@@UAEXPAV1@@Z PROC	; Goal<Raven_Bot>::AddSubgoal, COMDAT
+; _this$ = ecx
+
+; 77   :   {throw std::runtime_error("Cannot add goals to atomic goals");}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 16					; 00000010H
+	mov	eax, -858993460				; ccccccccH
+	mov	DWORD PTR [ebp-16], eax
+	mov	DWORD PTR [ebp-12], eax
+	mov	DWORD PTR [ebp-8], eax
+	mov	DWORD PTR [ebp-4], eax
+	mov	DWORD PTR _this$[ebp], ecx
+	push	OFFSET ??_C@_0CB@OHIHCHGJ@Cannot?5add?5goals?5to?5atomic?5goals@
+	lea	ecx, DWORD PTR $T1[ebp]
+	call	??0runtime_error@std@@QAE@PBD@Z		; std::runtime_error::runtime_error
+	push	OFFSET __TI2?AVruntime_error@std@@
+	lea	eax, DWORD PTR $T1[ebp]
+	push	eax
+	call	__CxxThrowException@8
+$LN2@AddSubgoal:
+	add	esp, 16					; 00000010H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?AddSubgoal@?$Goal@VRaven_Bot@@@@UAEXPAV1@@Z ENDP	; Goal<Raven_Bot>::AddSubgoal
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\common\goals\goal.h
+;	COMDAT ?HandleMessage@?$Goal@VRaven_Bot@@@@UAE_NABUTelegram@@@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+_msg$ = 8						; size = 4
+?HandleMessage@?$Goal@VRaven_Bot@@@@UAE_NABUTelegram@@@Z PROC ; Goal<Raven_Bot>::HandleMessage, COMDAT
+; _this$ = ecx
+
+; 70   :   virtual bool HandleMessage(const Telegram& msg){return false;}
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	xor	al, al
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?HandleMessage@?$Goal@VRaven_Bot@@@@UAE_NABUTelegram@@@Z ENDP ; Goal<Raven_Bot>::HandleMessage
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\common\goals\goal.h
+;	COMDAT ??1?$Goal@VRaven_Bot@@@@UAE@XZ
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+??1?$Goal@VRaven_Bot@@@@UAE@XZ PROC			; Goal<Raven_Bot>::~Goal<Raven_Bot>, COMDAT
+; _this$ = ecx
+
+; 56   :   virtual ~Goal(){}
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [eax], OFFSET ??_7?$Goal@VRaven_Bot@@@@6B@
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??1?$Goal@VRaven_Bot@@@@UAE@XZ ENDP			; Goal<Raven_Bot>::~Goal<Raven_Bot>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\common\goals\goal.h
+;	COMDAT ??0?$Goal@VRaven_Bot@@@@QAE@PAVRaven_Bot@@H@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+_pE$ = 8						; size = 4
+_type$ = 12						; size = 4
+??0?$Goal@VRaven_Bot@@@@QAE@PAVRaven_Bot@@H@Z PROC	; Goal<Raven_Bot>::Goal<Raven_Bot>, COMDAT
+; _this$ = ecx
+
+; 54   :   {}
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [eax], OFFSET ??_7?$Goal@VRaven_Bot@@@@6B@
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _type$[ebp]
+	mov	DWORD PTR [ecx+4], edx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _pE$[ebp]
+	mov	DWORD PTR [eax+8], ecx
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [edx+12], 1
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+??0?$Goal@VRaven_Bot@@@@QAE@PAVRaven_Bot@@H@Z ENDP	; Goal<Raven_Bot>::Goal<Raven_Bot>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\common\misc\cgdi.h
+;	COMDAT ?TextColor@Cgdi@@QAEXHHH@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+_r$ = 8							; size = 4
+_g$ = 12						; size = 4
+_b$ = 16						; size = 4
+?TextColor@Cgdi@@QAEXHHH@Z PROC				; Cgdi::TextColor, COMDAT
+; _this$ = ecx
+
+; 227  :   void TextColor(int r, int g, int b){SetTextColor(m_hdc, RGB(r,g,b));}
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	push	esi
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	movzx	eax, BYTE PTR _r$[ebp]
+	movzx	ecx, BYTE PTR _g$[ebp]
+	shl	ecx, 8
+	or	eax, ecx
+	movzx	edx, BYTE PTR _b$[ebp]
+	shl	edx, 16					; 00000010H
+	or	eax, edx
+	mov	esi, esp
+	push	eax
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+124]
+	push	ecx
+	call	DWORD PTR __imp__SetTextColor@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+	pop	esi
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	12					; 0000000cH
+?TextColor@Cgdi@@QAEXHHH@Z ENDP				; Cgdi::TextColor
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\common\misc\cgdi.h
+;	COMDAT ?TransparentText@Cgdi@@QAEXXZ
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+?TransparentText@Cgdi@@QAEXXZ PROC			; Cgdi::TransparentText, COMDAT
+; _this$ = ecx
+
+; 222  :   void TransparentText(){SetBkMode(m_hdc, TRANSPARENT);}
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	push	esi
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	esi, esp
+	push	1
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax+124]
+	push	ecx
+	call	DWORD PTR __imp__SetBkMode@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+	pop	esi
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?TransparentText@Cgdi@@QAEXXZ ENDP			; Cgdi::TransparentText
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
 ; File d:\git\githubproject\raven\common\misc\cgdi.h
 ;	COMDAT ?TextAtPos@Cgdi@@QAEXUVector2D@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 _TEXT	SEGMENT
@@ -13797,6 +14670,57 @@ _s$ = 24						; size = 4
 ?TextAtPos@Cgdi@@QAEXUVector2D@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ENDP ; Cgdi::TextAtPos
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\common\misc\cgdi.h
+;	COMDAT ?TextAtPos@Cgdi@@QAEXNNABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+_x$ = 8							; size = 8
+_y$ = 16						; size = 8
+_s$ = 24						; size = 4
+?TextAtPos@Cgdi@@QAEXNNABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z PROC ; Cgdi::TextAtPos, COMDAT
+; _this$ = ecx
+
+; 213  :   {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	push	esi
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 214  :     TextOut(m_hdc, (int)x, (int)y, s.c_str(), (int)s.size());
+
+	mov	ecx, DWORD PTR _s$[ebp]
+	call	?size@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEIXZ ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::size
+	mov	esi, esp
+	push	eax
+	mov	ecx, DWORD PTR _s$[ebp]
+	call	?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::c_str
+	push	eax
+	cvttsd2si eax, QWORD PTR _y$[ebp]
+	push	eax
+	cvttsd2si ecx, QWORD PTR _x$[ebp]
+	push	ecx
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [edx+124]
+	push	eax
+	call	DWORD PTR __imp__TextOutA@20
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 215  :   }
+
+	pop	esi
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	20					; 00000014H
+?TextAtPos@Cgdi@@QAEXNNABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ENDP ; Cgdi::TextAtPos
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
 ; File d:\git\githubproject\raven\mini_projet_raven\goals\gethealthgoal_evaluator.cpp
 _TEXT	SEGMENT
 tv171 = -300						; size = 4
@@ -13829,7 +14753,7 @@ _pBot$ = 24						; size = 4
 ?RenderInfo@GetHealthGoal_Evaluator@@UAEXUVector2D@@PAVRaven_Bot@@@Z PROC ; GetHealthGoal_Evaluator::RenderInfo
 ; _this$ = ecx
 
-; 56   : {
+; 59   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -13854,7 +14778,7 @@ _pBot$ = 24						; size = 4
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 57   :   gdi->TextAtPos(Position, "H: " + ttos(CalculateDesirability(pBot), 2));
+; 60   :   gdi->TextAtPos(Position, "H: " + ttos(CalculateDesirability(pBot), 2));
 
 	mov	esi, esp
 	mov	eax, DWORD PTR _pBot$[ebp]
@@ -13880,7 +14804,7 @@ _pBot$ = 24						; size = 4
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 	mov	ecx, DWORD PTR tv163[ebp]
 	push	ecx
-	push	OFFSET $SG151362
+	push	OFFSET $SG151399
 	lea	edx, DWORD PTR $T10[ebp]
 	push	edx
 	call	??$?HDU?$char_traits@D@std@@V?$allocator@D@1@@std@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@PBD$$QAV10@@Z ; std::operator+<char,std::char_traits<char>,std::allocator<char> >
@@ -13911,12 +14835,12 @@ _pBot$ = 24						; size = 4
 	lea	ecx, DWORD PTR $T11[ebp]
 	call	??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::~basic_string<char,std::char_traits<char>,std::allocator<char> >
 
-; 58   :   return;
+; 61   :   return;
 
 	jmp	$LN1@RenderInfo
 
-; 59   :   
-; 60   :   std::string s = ttos(1-Raven_Feature::Health(pBot)) + ", " + ttos(Raven_Feature::DistanceToItem(pBot, type_health));
+; 62   :   
+; 63   :   std::string s = ttos(1-Raven_Feature::Health(pBot)) + ", " + ttos(Raven_Feature::DistanceToItem(pBot, type_health));
 
 	push	4
 	mov	edx, DWORD PTR _pBot$[ebp]
@@ -13945,7 +14869,7 @@ _pBot$ = 24						; size = 4
 	mov	DWORD PTR __$EHRec$[ebp+8], 2
 	mov	ecx, DWORD PTR tv167[ebp]
 	push	ecx
-	push	OFFSET $SG151460
+	push	OFFSET $SG151497
 	push	2
 	lea	edx, DWORD PTR $T4[ebp]
 	push	edx
@@ -13983,7 +14907,7 @@ _pBot$ = 24						; size = 4
 	lea	ecx, DWORD PTR $T7[ebp]
 	call	??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::~basic_string<char,std::char_traits<char>,std::allocator<char> >
 
-; 61   :   gdi->TextAtPos(Position+Vector2D(0,15), s);
+; 64   :   gdi->TextAtPos(Position+Vector2D(0,15), s);
 
 	lea	ecx, DWORD PTR _s$[ebp]
 	push	ecx
@@ -14015,7 +14939,7 @@ _pBot$ = 24						; size = 4
 	mov	ecx, eax
 	call	?TextAtPos@Cgdi@@QAEXUVector2D@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; Cgdi::TextAtPos
 
-; 62   : }
+; 65   : }
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _s$[ebp]
@@ -14089,20 +15013,40 @@ text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File d:\git\githubproject\raven\mini_projet_raven\goals\gethealthgoal_evaluator.cpp
 _TEXT	SEGMENT
-_this$ = -4						; size = 4
+tv75 = -32						; size = 4
+tv89 = -28						; size = 4
+$T2 = -24						; size = 4
+$T3 = -20						; size = 4
+_this$ = -16						; size = 4
+__$EHRec$ = -12						; size = 12
 _pBot$ = 8						; size = 4
 ?SetGoal@GetHealthGoal_Evaluator@@UAEXPAVRaven_Bot@@@Z PROC ; GetHealthGoal_Evaluator::SetGoal
 ; _this$ = ecx
 
-; 49   : {
+; 51   : {
 
 	push	ebp
 	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	push	-1
+	push	__ehhandler$?SetGoal@GetHealthGoal_Evaluator@@UAEXPAVRaven_Bot@@@Z
+	mov	eax, DWORD PTR fs:0
+	push	eax
+	sub	esp, 20					; 00000014H
+	push	esi
+	mov	eax, -858993460				; ccccccccH
+	mov	DWORD PTR [ebp-32], eax
+	mov	DWORD PTR [ebp-28], eax
+	mov	DWORD PTR [ebp-24], eax
+	mov	DWORD PTR [ebp-20], eax
+	mov	DWORD PTR [ebp-16], eax
+	mov	eax, DWORD PTR ___security_cookie
+	xor	eax, ebp
+	push	eax
+	lea	eax, DWORD PTR __$EHRec$[ebp]
+	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 50   :   pBot->GetBrain()->AddGoal_GetItem(type_health); 
+; 52   :   pBot->GetBrain()->AddGoal_GetItem(type_health); 
 
 	push	4
 	mov	ecx, DWORD PTR _pBot$[ebp]
@@ -14110,16 +15054,71 @@ _pBot$ = 8						; size = 4
 	mov	ecx, eax
 	call	?AddGoal_GetItem@Goal_Think@@QAEXI@Z	; Goal_Think::AddGoal_GetItem
 
-; 51   : }
+; 53   :   pBot->GetBrain()->AddSubgoal(new Goal_DodgeSideToSide(pBot));
 
+	push	40					; 00000028H
+	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
+	mov	DWORD PTR $T2[ebp], eax
+	mov	DWORD PTR __$EHRec$[ebp+8], 0
+	cmp	DWORD PTR $T2[ebp], 0
+	je	SHORT $LN3@SetGoal
+	mov	eax, DWORD PTR _pBot$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR $T2[ebp]
+	call	??0Goal_DodgeSideToSide@@QAE@PAVRaven_Bot@@@Z ; Goal_DodgeSideToSide::Goal_DodgeSideToSide
+	mov	DWORD PTR tv89[ebp], eax
+	jmp	SHORT $LN4@SetGoal
+$LN3@SetGoal:
+	mov	DWORD PTR tv89[ebp], 0
+$LN4@SetGoal:
+	mov	ecx, DWORD PTR tv89[ebp]
+	mov	DWORD PTR $T3[ebp], ecx
+	mov	DWORD PTR __$EHRec$[ebp+8], -1
+	mov	ecx, DWORD PTR _pBot$[ebp]
+	call	?GetBrain@Raven_Bot@@QAEQAVGoal_Think@@XZ ; Raven_Bot::GetBrain
+	mov	DWORD PTR tv75[ebp], eax
+	mov	esi, esp
+	mov	edx, DWORD PTR $T3[ebp]
+	push	edx
+	mov	eax, DWORD PTR tv75[ebp]
+	mov	edx, DWORD PTR [eax]
+	mov	ecx, DWORD PTR tv75[ebp]
+	mov	eax, DWORD PTR [edx+20]
+	call	eax
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 54   : }
+
+	mov	ecx, DWORD PTR __$EHRec$[ebp]
+	mov	DWORD PTR fs:0, ecx
+	pop	ecx
+	pop	esi
+	add	esp, 32					; 00000020H
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
 	pop	ebp
 	ret	4
-?SetGoal@GetHealthGoal_Evaluator@@UAEXPAVRaven_Bot@@@Z ENDP ; GetHealthGoal_Evaluator::SetGoal
 _TEXT	ENDS
+text$x	SEGMENT
+__unwindfunclet$?SetGoal@GetHealthGoal_Evaluator@@UAEXPAVRaven_Bot@@@Z$0:
+	mov	eax, DWORD PTR $T2[ebp]
+	push	eax
+	call	??3@YAXPAX@Z				; operator delete
+	pop	ecx
+	ret	0
+__ehhandler$?SetGoal@GetHealthGoal_Evaluator@@UAEXPAVRaven_Bot@@@Z:
+	mov	edx, DWORD PTR [esp+8]
+	lea	eax, DWORD PTR [edx+12]
+	mov	ecx, DWORD PTR [edx-28]
+	xor	ecx, eax
+	call	@__security_check_cookie@4
+	mov	eax, OFFSET __ehfuncinfo$?SetGoal@GetHealthGoal_Evaluator@@UAEXPAVRaven_Bot@@@Z
+	jmp	___CxxFrameHandler3
+text$x	ENDS
+?SetGoal@GetHealthGoal_Evaluator@@UAEXPAVRaven_Bot@@@Z ENDP ; GetHealthGoal_Evaluator::SetGoal
 ; Function compile flags: /Odtp /RTCsu
 ; File d:\git\githubproject\raven\mini_projet_raven\goals\gethealthgoal_evaluator.cpp
 _TEXT	SEGMENT
@@ -14136,7 +15135,7 @@ _pBot$ = 8						; size = 4
 ?CalculateDesirability@GetHealthGoal_Evaluator@@UAENPAVRaven_Bot@@@Z PROC ; GetHealthGoal_Evaluator::CalculateDesirability
 ; _this$ = ecx
 
-; 12   : {
+; 14   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -14150,8 +15149,8 @@ _pBot$ = 8						; size = 4
 	pop	ecx
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 13   :   //first grab the distance to the closest instance of a health item
-; 14   :   double Distance = Raven_Feature::DistanceToItem(pBot, type_health);
+; 15   :   //first grab the distance to the closest instance of a health item
+; 16   :   double Distance = Raven_Feature::DistanceToItem(pBot, type_health);
 
 	push	4
 	mov	eax, DWORD PTR _pBot$[ebp]
@@ -14160,11 +15159,11 @@ _pBot$ = 8						; size = 4
 	add	esp, 8
 	fstp	QWORD PTR _Distance$[ebp]
 
-; 15   : 
-; 16   :   //if the distance feature is rated with a value of 1 it means that the
-; 17   :   //item is either not present on the map or too far away to be worth 
-; 18   :   //considering, therefore the desirability is zero
-; 19   :   if (Distance == 1)
+; 17   : 
+; 18   :   //if the distance feature is rated with a value of 1 it means that the
+; 19   :   //item is either not present on the map or too far away to be worth 
+; 20   :   //considering, therefore the desirability is zero
+; 21   :   if (Distance == 1)
 
 	movsd	xmm0, QWORD PTR _Distance$[ebp]
 	ucomisd	xmm0, QWORD PTR __real@3ff0000000000000
@@ -14172,31 +15171,31 @@ _pBot$ = 8						; size = 4
 	test	ah, 68					; 00000044H
 	jp	SHORT $LN2@CalculateD
 
-; 20   :   {
-; 21   :     return 0;
+; 22   :   {
+; 23   :     return 0;
 
 	fldz
 	jmp	$LN1@CalculateD
 
-; 22   :   }
-; 23   :   else
+; 24   :   }
+; 25   :   else
 
 	jmp	$LN1@CalculateD
 $LN2@CalculateD:
 
-; 24   :   {
-; 25   :     //value used to tweak the desirability
-; 26   :     const double Tweaker = 0.2;
+; 26   :   {
+; 27   :     //value used to tweak the desirability
+; 28   :     const double Tweaker = 0.2;
 
 	movsd	xmm0, QWORD PTR __real@3fc999999999999a
 	movsd	QWORD PTR _Tweaker$4[ebp], xmm0
 
-; 27   :   
-; 28   :     //the desirability of finding a health item is proportional to the amount
-; 29   :     //of health remaining and inversely proportional to the distance from the
-; 30   :     //nearest instance of a health item.
-; 31   :     double Desirability = Tweaker * (1-Raven_Feature::Health(pBot)) / 
-; 32   :                         (Raven_Feature::DistanceToItem(pBot, type_health));
+; 29   :   
+; 30   :     //the desirability of finding a health item is proportional to the amount
+; 31   :     //of health remaining and inversely proportional to the distance from the
+; 32   :     //nearest instance of a health item.
+; 33   :     double Desirability = Tweaker * (1-Raven_Feature::Health(pBot)) / 
+; 34   :                         (Raven_Feature::DistanceToItem(pBot, type_health));
 
 	mov	ecx, DWORD PTR _pBot$[ebp]
 	push	ecx
@@ -14217,9 +15216,9 @@ $LN2@CalculateD:
 	divsd	xmm0, QWORD PTR tv140[ebp]
 	movsd	QWORD PTR _Desirability$3[ebp], xmm0
 
-; 33   :  
-; 34   :     //ensure the value is in the range 0 to 1
-; 35   :     Clamp(Desirability, 0, 1);
+; 35   :  
+; 36   :     //ensure the value is in the range 0 to 1
+; 37   :     Clamp(Desirability, 0, 1);
 
 	mov	DWORD PTR $T2[ebp], 1
 	mov	DWORD PTR $T1[ebp], 0
@@ -14232,23 +15231,23 @@ $LN2@CalculateD:
 	call	??$Clamp@NHH@@YAXAANABH1@Z		; Clamp<double,int,int>
 	add	esp, 12					; 0000000cH
 
-; 36   :   
-; 37   :     //bias the value according to the personality of the bot
-; 38   :     Desirability *= m_dCharacterBias;
+; 38   :   
+; 39   :     //bias the value according to the personality of the bot
+; 40   :     Desirability *= m_dCharacterBias;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	movsd	xmm0, QWORD PTR _Desirability$3[ebp]
 	mulsd	xmm0, QWORD PTR [eax+8]
 	movsd	QWORD PTR _Desirability$3[ebp], xmm0
 
-; 39   : 
-; 40   :     return Desirability;
+; 41   : 
+; 42   :     return Desirability;
 
 	fld	QWORD PTR _Desirability$3[ebp]
 $LN1@CalculateD:
 
-; 41   :   }
-; 42   : }
+; 43   :   }
+; 44   : }
 
 	push	edx
 	mov	ecx, ebp
@@ -14510,6 +15509,103 @@ _b$ = 16						; size = 8
 	pop	ebp
 	ret	16					; 00000010H
 ??0Vector2D@@QAE@NN@Z ENDP				; Vector2D::Vector2D
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\common\2d\vector2d.h
+;	COMDAT ??0Vector2D@@QAE@XZ
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+??0Vector2D@@QAE@XZ PROC				; Vector2D::Vector2D, COMDAT
+; _this$ = ecx
+
+; 24   :   Vector2D():x(0.0),y(0.0){}
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	movsd	xmm0, QWORD PTR __real@0000000000000000
+	movsd	QWORD PTR [eax], xmm0
+	mov	ecx, DWORD PTR _this$[ebp]
+	movsd	xmm0, QWORD PTR __real@0000000000000000
+	movsd	QWORD PTR [ecx+8], xmm0
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??0Vector2D@@QAE@XZ ENDP				; Vector2D::Vector2D
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\common\misc\utils.h
+;	COMDAT ?RandBool@@YA_NXZ
+_TEXT	SEGMENT
+tv69 = -8						; size = 8
+?RandBool@@YA_NXZ PROC					; RandBool, COMDAT
+
+; 103  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 8
+	mov	DWORD PTR [ebp-8], -858993460		; ccccccccH
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+
+; 104  :   if (RandFloat() > 0.5) return true;
+
+	call	?RandFloat@@YANXZ			; RandFloat
+	fstp	QWORD PTR tv69[ebp]
+	movsd	xmm0, QWORD PTR tv69[ebp]
+	comisd	xmm0, QWORD PTR __real@3fe0000000000000
+	jbe	SHORT $LN2@RandBool
+	mov	al, 1
+	jmp	SHORT $LN1@RandBool
+	jmp	SHORT $LN1@RandBool
+$LN2@RandBool:
+
+; 105  : 
+; 106  :   else return false;
+
+	xor	al, al
+$LN1@RandBool:
+
+; 107  : }
+
+	add	esp, 8
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?RandBool@@YA_NXZ ENDP					; RandBool
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\common\misc\utils.h
+;	COMDAT ?RandFloat@@YANXZ
+_TEXT	SEGMENT
+tv70 = -8						; size = 8
+?RandFloat@@YANXZ PROC					; RandFloat, COMDAT
+
+; 94   : inline double RandFloat()      {return ((rand())/(RAND_MAX+1.0));}
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 8
+	mov	DWORD PTR [ebp-8], -858993460		; ccccccccH
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	call	_rand
+	cvtsi2sd xmm0, eax
+	divsd	xmm0, QWORD PTR __real@40e0000000000000
+	movsd	QWORD PTR tv70[ebp], xmm0
+	fld	QWORD PTR tv70[ebp]
+	add	esp, 8
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?RandFloat@@YANXZ ENDP					; RandFloat
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File d:\git\githubproject\raven\common\misc\utils.h

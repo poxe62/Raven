@@ -23,7 +23,7 @@
 #include "Debug/DebugConsole.h"
 
 //-------------------------- ctor ---------------------------------------------
-Raven_Bot::Raven_Bot(Raven_Game* world,Vector2D pos):
+Raven_Bot::Raven_Bot(Raven_Game* world,Vector2D pos, int teamNumber):
 
   MovingEntity(pos,
                script->GetDouble("Bot_Scale"),
@@ -385,6 +385,8 @@ void Raven_Bot::ChangeWeapon(unsigned int type)
 void Raven_Bot::FireWeapon(Vector2D pos)
 {
   m_pWeaponSys->ShootAt(pos);
+
+
 }
 
 //----------------- CalculateExpectedTimeToReachPosition ----------------------

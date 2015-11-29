@@ -122,10 +122,12 @@ private:
   //initializes the bot's VB with its geometry
   void          SetUpVertexBuffer();
 
+  int teamNumber;
+
 
 public:
   
-  Raven_Bot(Raven_Game* world, Vector2D pos);
+  Raven_Bot(Raven_Game* world, Vector2D pos, int teamNumber);
   virtual ~Raven_Bot();
 
   //the usual suspects
@@ -209,6 +211,10 @@ public:
   Raven_Bot* const                   GetTargetBot()const{return m_pTargSys->GetTarget();}
   Raven_WeaponSystem* const          GetWeaponSys()const{return m_pWeaponSys;}
   Raven_SensoryMemory* const         GetSensoryMem()const{return m_pSensoryMem;}
+
+  void setTeamNumber(int number){this->teamNumber = number;}
+  int getTeamNumber(){return this->teamNumber;}
+
 
 
 };

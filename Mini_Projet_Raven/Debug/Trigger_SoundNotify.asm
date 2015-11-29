@@ -718,30 +718,6 @@ CONST	ENDS
 CONST	SEGMENT
 ?digits@?$numeric_limits@D@std@@2HB DD 07H		; std::numeric_limits<char>::digits
 CONST	ENDS
-CONST	SEGMENT
-_SEND_MSG_IMMEDIATELY DQ 00000000000000000r	; 0
-_pi	DQ	0400921f9f01b866er		; 3.14159
-_colors	DD	0ffH
-	DD	0ff0000H
-	DD	0ff00H
-	DD	00H
-	DD	0c8c8ffH
-	DD	0c8c8c8H
-	DD	0ffffH
-	DD	0aaffH
-	DD	0aa00ffH
-	DD	05a85H
-	DD	0ffffffH
-	DD	06400H
-	DD	0ffff00H
-	DD	0c8c8c8H
-	DD	0e6e6ffH
-	ORG $+4
-_Pi	DQ	0400921f9f01b866er		; 3.14159
-$SG156505 DB	'Bot_TriggerUpdateFreq', 00H
-	ORG $+2
-_SmallestDelay DQ 03fd0000000000000r		; 0.25
-CONST	ENDS
 ;	COMDAT ?is_signed@?$numeric_limits@D@std@@2_NB
 CONST	SEGMENT
 ?is_signed@?$numeric_limits@D@std@@2_NB DB 01H		; std::numeric_limits<char>::is_signed
@@ -809,6 +785,29 @@ CONST	ENDS
 ;	COMDAT ?has_denorm@_Num_float_base@std@@2W4float_denorm_style@2@B
 CONST	SEGMENT
 ?has_denorm@_Num_float_base@std@@2W4float_denorm_style@2@B DD 01H ; std::_Num_float_base::has_denorm
+CONST	ENDS
+CONST	SEGMENT
+_SmallestDelay DQ 03fd0000000000000r		; 0.25
+_SEND_MSG_IMMEDIATELY DQ 00000000000000000r	; 0
+_pi	DQ	0400921f9f01b866er		; 3.14159
+_colors	DD	0ffH
+	DD	0ff0000H
+	DD	0ff00H
+	DD	00H
+	DD	0c8c8ffH
+	DD	0c8c8c8H
+	DD	0ffffH
+	DD	0aaffH
+	DD	0aa00ffH
+	DD	05a85H
+	DD	0ffffffH
+	DD	06400H
+	DD	0ffff00H
+	DD	0c8c8c8H
+	DD	0e6e6ffH
+	ORG $+4
+_Pi	DQ	0400921f9f01b866er		; 3.14159
+$SG156530 DB	'Bot_TriggerUpdateFreq', 00H
 CONST	ENDS
 ;	COMDAT ?radix@_Num_int_base@std@@2HB
 CONST	SEGMENT
@@ -3541,7 +3540,7 @@ _range$ = 12						; size = 8
 	lea	eax, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
-	push	OFFSET $SG156505
+	push	OFFSET $SG156530
 	call	?Instance@Raven_Scriptor@@SAPAV1@XZ	; Raven_Scriptor::Instance
 	mov	ecx, eax
 	call	?GetInt@Scriptor@@QAEHPAD@Z		; Scriptor::GetInt

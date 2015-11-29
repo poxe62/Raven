@@ -79,6 +79,7 @@ int Goal_Think::Process()
   
   int SubgoalStatus = ProcessSubgoals();
 
+
   if (SubgoalStatus == completed || SubgoalStatus == failed)
   {
     if (!m_pOwner->isPossessed())

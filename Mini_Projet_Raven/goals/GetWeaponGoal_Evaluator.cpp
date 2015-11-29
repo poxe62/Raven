@@ -9,6 +9,8 @@
 
 #include <string>
 
+#include "Goal_DodgeSideToSide.h"
+
 
 
 
@@ -55,6 +57,7 @@ double GetWeaponGoal_Evaluator::CalculateDesirability(Raven_Bot* pBot)
 void GetWeaponGoal_Evaluator::SetGoal(Raven_Bot* pBot)
 {
   pBot->GetBrain()->AddGoal_GetItem(m_iWeaponType); 
+//  pBot->GetBrain()->AddSubgoal(new Goal_DodgeSideToSide(pBot));
 }
 
 //-------------------------- RenderInfo ---------------------------------------

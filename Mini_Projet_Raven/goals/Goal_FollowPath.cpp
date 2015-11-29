@@ -6,6 +6,8 @@
 #include "Goal_NegotiateDoor.h"
 #include "misc/cgdi.h"
 
+#include "Goal_DodgeSideToSide.h"
+
 
 
 //------------------------------ ctor -----------------------------------------
@@ -37,7 +39,15 @@ void Goal_FollowPath::Activate()
   {
   case NavGraphEdge::normal:
     {
-      AddSubgoal(new Goal_TraverseEdge(m_pOwner, edge, m_Path.empty()));
+		 
+     
+	  if(RandInt(0,3) < 1){
+		  new Goal_DodgeSideToSide(m_pOwner);
+	  }
+	  else{
+		   AddSubgoal(new Goal_TraverseEdge(m_pOwner, edge, m_Path.empty()));
+	  }
+	 
     }
 
     break;
@@ -46,7 +56,12 @@ void Goal_FollowPath::Activate()
     {
 
       //also add a goal that is able to handle opening the door
-      AddSubgoal(new Goal_NegotiateDoor(m_pOwner, edge, m_Path.empty()));
+		if(RandInt(0,3) < 1){
+			new Goal_DodgeSideToSide(m_pOwner);
+		}
+		else{
+			AddSubgoal(new Goal_TraverseEdge(m_pOwner, edge, m_Path.empty()));
+		}
     }
 
     break;

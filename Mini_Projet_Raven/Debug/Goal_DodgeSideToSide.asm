@@ -896,6 +896,7 @@ PUBLIC	?message@_System_error_category@std@@UBE?AV?$basic_string@DU?$char_traits
 PUBLIC	?default_error_condition@_System_error_category@std@@UBE?AVerror_condition@2@H@Z ; std::_System_error_category::default_error_condition
 PUBLIC	??1_System_error_category@std@@UAE@XZ		; std::_System_error_category::~_System_error_category
 PUBLIC	??_G_System_error_category@std@@UAEPAXI@Z	; std::_System_error_category::`scalar deleting destructor'
+PUBLIC	?RandInt@@YAHHH@Z				; RandInt
 PUBLIC	?GetSteering@Raven_Bot@@QAEQAVRaven_Steering@@XZ ; Raven_Bot::GetSteering
 PUBLIC	?GetTargetSys@Raven_Bot@@QAEQAVRaven_TargetingSystem@@XZ ; Raven_Bot::GetTargetSys
 PUBLIC	?ActivateIfInactive@?$Goal@VRaven_Bot@@@@IAEXXZ	; Goal<Raven_Bot>::ActivateIfInactive
@@ -938,6 +939,9 @@ PUBLIC	?_Iostream_object@?$_Error_objects@H@std@@2V_Iostream_error_category@2@A 
 PUBLIC	?_System_object@?$_Error_objects@H@std@@2V_System_error_category@2@A ; std::_Error_objects<int>::_System_object
 PUBLIC	?id@?$num_put@DV?$back_insert_iterator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@std@@2V0locale@2@A ; std::num_put<char,std::back_insert_iterator<std::basic_string<char,std::char_traits<char>,std::allocator<char> > > >::id
 PUBLIC	?id@?$num_put@_WV?$back_insert_iterator@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@std@@@std@@2V0locale@2@A ; std::num_put<wchar_t,std::back_insert_iterator<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > > >::id
+PUBLIC	??_C@_0BM@IMGJFIHE@?$DMRandInt?$DO?3?5y?5is?5less?5than?5x?$AA@ ; `string'
+PUBLIC	??_C@_1FO@BGAPCGLE@?$AAD?$AA?3?$AA?2?$AAG?$AAi?$AAt?$AA?2?$AAG?$AAi?$AAt?$AAH?$AAu?$AAb?$AAP?$AAr?$AAo?$AAj?$AAe?$AAc?$AAt?$AA?2?$AAR?$AAa?$AAv?$AAe?$AAn?$AA?2?$AAC?$AAo?$AAm?$AAm?$AAo@ ; `string'
+PUBLIC	??_C@_1EM@JBDGIPGD@?$AAy?$AA?$DO?$AA?$DN?$AAx?$AA?5?$AA?$CG?$AA?$CG?$AA?5?$AA?$CC?$AA?$DM?$AAR?$AAa?$AAn?$AAd?$AAI?$AAn?$AAt?$AA?$DO?$AA?3?$AA?5?$AAy?$AA?5?$AAi?$AAs?$AA?5?$AAl?$AAe?$AAs?$AAs?$AA?5?$AAt?$AAh@ ; `string'
 PUBLIC	??_C@_1FM@OACLAPGK@?$AAD?$AA?3?$AA?2?$AAM?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt?$AA?5?$AAV?$AAi?$AAs?$AAu?$AAa?$AAl?$AA?5?$AAS?$AAt?$AAu?$AAd?$AAi?$AAo?$AA?2?$AAV?$AAC?$AA?2?$AAi?$AAn@ ; `string'
 PUBLIC	?id@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@2V0locale@2@A ; std::num_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >::id
 PUBLIC	?id@?$num_get@DV?$istreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@2V0locale@2@A ; std::num_get<char,std::istreambuf_iterator<char,std::char_traits<char> > >::id
@@ -980,6 +984,7 @@ EXTRN	_atexit:PROC
 EXTRN	_memcpy:PROC
 EXTRN	_strlen:PROC
 EXTRN	_memmove:PROC
+EXTRN	_rand:PROC
 EXTRN	??0_Lockit@std@@QAE@H@Z:PROC			; std::_Lockit::_Lockit
 EXTRN	??1_Lockit@std@@QAE@XZ:PROC			; std::_Lockit::~_Lockit
 EXTRN	?_Debug_message@std@@YAXPB_W0I@Z:PROC		; std::_Debug_message
@@ -992,6 +997,7 @@ EXTRN	?_Winerror_map@std@@YAPBDH@Z:PROC		; std::_Winerror_map
 EXTRN	??_E_Generic_error_category@std@@UAEPAXI@Z:PROC	; std::_Generic_error_category::`vector deleting destructor'
 EXTRN	??_E_Iostream_error_category@std@@UAEPAXI@Z:PROC ; std::_Iostream_error_category::`vector deleting destructor'
 EXTRN	??_E_System_error_category@std@@UAEPAXI@Z:PROC	; std::_System_error_category::`vector deleting destructor'
+EXTRN	__wassert:PROC
 EXTRN	?isTargetWithinFOV@Raven_TargetingSystem@@QBE_NXZ:PROC ; Raven_TargetingSystem::isTargetWithinFOV
 EXTRN	?isAtPosition@Raven_Bot@@QBE_NUVector2D@@@Z:PROC ; Raven_Bot::isAtPosition
 EXTRN	?canStepLeft@Raven_Bot@@QBE_NAAUVector2D@@@Z:PROC ; Raven_Bot::canStepLeft
@@ -1273,6 +1279,33 @@ CONST	SEGMENT
 	DB	00H, 'V', 00H, 'C', 00H, '\', 00H, 'i', 00H, 'n', 00H, 'c', 00H
 	DB	'l', 00H, 'u', 00H, 'd', 00H, 'e', 00H, '\', 00H, 'x', 00H, 's'
 	DB	00H, 't', 00H, 'r', 00H, 'i', 00H, 'n', 00H, 'g', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1EM@JBDGIPGD@?$AAy?$AA?$DO?$AA?$DN?$AAx?$AA?5?$AA?$CG?$AA?$CG?$AA?5?$AA?$CC?$AA?$DM?$AAR?$AAa?$AAn?$AAd?$AAI?$AAn?$AAt?$AA?$DO?$AA?3?$AA?5?$AAy?$AA?5?$AAi?$AAs?$AA?5?$AAl?$AAe?$AAs?$AAs?$AA?5?$AAt?$AAh@
+CONST	SEGMENT
+??_C@_1EM@JBDGIPGD@?$AAy?$AA?$DO?$AA?$DN?$AAx?$AA?5?$AA?$CG?$AA?$CG?$AA?5?$AA?$CC?$AA?$DM?$AAR?$AAa?$AAn?$AAd?$AAI?$AAn?$AAt?$AA?$DO?$AA?3?$AA?5?$AAy?$AA?5?$AAi?$AAs?$AA?5?$AAl?$AAe?$AAs?$AAs?$AA?5?$AAt?$AAh@ DB 'y'
+	DB	00H, '>', 00H, '=', 00H, 'x', 00H, ' ', 00H, '&', 00H, '&', 00H
+	DB	' ', 00H, '"', 00H, '<', 00H, 'R', 00H, 'a', 00H, 'n', 00H, 'd'
+	DB	00H, 'I', 00H, 'n', 00H, 't', 00H, '>', 00H, ':', 00H, ' ', 00H
+	DB	'y', 00H, ' ', 00H, 'i', 00H, 's', 00H, ' ', 00H, 'l', 00H, 'e'
+	DB	00H, 's', 00H, 's', 00H, ' ', 00H, 't', 00H, 'h', 00H, 'a', 00H
+	DB	'n', 00H, ' ', 00H, 'x', 00H, '"', 00H, 00H, 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1FO@BGAPCGLE@?$AAD?$AA?3?$AA?2?$AAG?$AAi?$AAt?$AA?2?$AAG?$AAi?$AAt?$AAH?$AAu?$AAb?$AAP?$AAr?$AAo?$AAj?$AAe?$AAc?$AAt?$AA?2?$AAR?$AAa?$AAv?$AAe?$AAn?$AA?2?$AAC?$AAo?$AAm?$AAm?$AAo@
+CONST	SEGMENT
+??_C@_1FO@BGAPCGLE@?$AAD?$AA?3?$AA?2?$AAG?$AAi?$AAt?$AA?2?$AAG?$AAi?$AAt?$AAH?$AAu?$AAb?$AAP?$AAr?$AAo?$AAj?$AAe?$AAc?$AAt?$AA?2?$AAR?$AAa?$AAv?$AAe?$AAn?$AA?2?$AAC?$AAo?$AAm?$AAm?$AAo@ DB 'D'
+	DB	00H, ':', 00H, '\', 00H, 'G', 00H, 'i', 00H, 't', 00H, '\', 00H
+	DB	'G', 00H, 'i', 00H, 't', 00H, 'H', 00H, 'u', 00H, 'b', 00H, 'P'
+	DB	00H, 'r', 00H, 'o', 00H, 'j', 00H, 'e', 00H, 'c', 00H, 't', 00H
+	DB	'\', 00H, 'R', 00H, 'a', 00H, 'v', 00H, 'e', 00H, 'n', 00H, '\'
+	DB	00H, 'C', 00H, 'o', 00H, 'm', 00H, 'm', 00H, 'o', 00H, 'n', 00H
+	DB	'\', 00H, 'm', 00H, 'i', 00H, 's', 00H, 'c', 00H, '/', 00H, 'u'
+	DB	00H, 't', 00H, 'i', 00H, 'l', 00H, 's', 00H, '.', 00H, 'h', 00H
+	DB	00H, 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BM@IMGJFIHE@?$DMRandInt?$DO?3?5y?5is?5less?5than?5x?$AA@
+CONST	SEGMENT
+??_C@_0BM@IMGJFIHE@?$DMRandInt?$DO?3?5y?5is?5less?5than?5x?$AA@ DB '<Rand'
+	DB	'Int>: y is less than x', 00H		; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_06FHFOAHML@system?$AA@
 CONST	SEGMENT
@@ -2515,7 +2548,7 @@ _this$ = -4						; size = 4
 ?Terminate@Goal_DodgeSideToSide@@UAEXXZ PROC		; Goal_DodgeSideToSide::Terminate
 ; _this$ = ecx
 
-; 82   : {
+; 86   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2523,7 +2556,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 83   :   m_pOwner->GetSteering()->SeekOff();
+; 87   : 	m_pOwner->GetSteering()->SeekOff();
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+8]
@@ -2531,7 +2564,7 @@ _this$ = -4						; size = 4
 	mov	ecx, eax
 	call	?SeekOff@Raven_Steering@@QAEXXZ		; Raven_Steering::SeekOff
 
-; 84   : }
+; 88   : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -2548,7 +2581,7 @@ _this$ = -4						; size = 4
 ?Render@Goal_DodgeSideToSide@@UAEXXZ PROC		; Goal_DodgeSideToSide::Render
 ; _this$ = ecx
 
-; 89   : {
+; 93   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2556,16 +2589,16 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 90   : //#define SHOW_TARGET
-; 91   : #ifdef SHOW_TARGET
-; 92   :   gdi->OrangePen();
-; 93   :   gdi->HollowBrush();
-; 94   : 
-; 95   :   gdi->Line(m_pOwner->Pos(), m_vStrafeTarget);
-; 96   :   gdi->Circle(m_vStrafeTarget, 3);
-; 97   : #endif
-; 98   :   
-; 99   : }
+; 94   : 	//#define SHOW_TARGET
+; 95   : #ifdef SHOW_TARGET
+; 96   : 	gdi->OrangePen();
+; 97   : 	gdi->HollowBrush();
+; 98   : 
+; 99   : 	gdi->Line(m_pOwner->Pos(), m_vStrafeTarget);
+; 100  : 	gdi->Circle(m_vStrafeTarget, 3);
+; 101  : #endif
+; 102  : 
+; 103  : }
 
 	mov	esp, ebp
 	pop	ebp
@@ -2579,7 +2612,7 @@ _this$ = -4						; size = 4
 ?Process@Goal_DodgeSideToSide@@UAEHXZ PROC		; Goal_DodgeSideToSide::Process
 ; _this$ = ecx
 
-; 59   : {
+; 63   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2587,15 +2620,15 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 60   :   //if status is inactive, call Activate()
-; 61   :   ActivateIfInactive(); 
+; 64   : 	//if status is inactive, call Activate()
+; 65   : 	ActivateIfInactive(); 
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ActivateIfInactive@?$Goal@VRaven_Bot@@@@IAEXXZ ; Goal<Raven_Bot>::ActivateIfInactive
 
-; 62   : 
-; 63   :   //if target goes out of view terminate
-; 64   :   if (!m_pOwner->GetTargetSys()->isTargetWithinFOV())
+; 66   : 
+; 67   : 	//if target goes out of view terminate
+; 68   : 	if (!m_pOwner->GetTargetSys()->isTargetWithinFOV())
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+8]
@@ -2606,19 +2639,19 @@ _this$ = -4						; size = 4
 	test	ecx, ecx
 	jne	SHORT $LN3@Process
 
-; 65   :   {
-; 66   :     m_iStatus = completed;
+; 69   : 	{
+; 70   : 		m_iStatus = completed;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [edx+12], 2
 	jmp	SHORT $LN2@Process
 $LN3@Process:
 
-; 67   :   }
-; 68   : 
-; 69   :   //else if bot reaches the target position set status to inactive so the goal 
-; 70   :   //is reactivated on the next update-step
-; 71   :   else if (m_pOwner->isAtPosition(m_vStrafeTarget))
+; 71   : 	}
+; 72   : 
+; 73   : 	//else if bot reaches the target position set status to inactive so the goal 
+; 74   : 	//is reactivated on the next update-step
+; 75   : 	else if (m_pOwner->isAtPosition(m_vStrafeTarget))
 
 	mov	eax, DWORD PTR _this$[ebp]
 	add	eax, 16					; 00000010H
@@ -2639,21 +2672,21 @@ $LN3@Process:
 	test	edx, edx
 	je	SHORT $LN2@Process
 
-; 72   :   {
-; 73   :     m_iStatus = inactive;
+; 76   : 	{
+; 77   : 		m_iStatus = inactive;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+12], 1
 $LN2@Process:
 
-; 74   :   }
-; 75   : 
-; 76   :   return m_iStatus;
+; 78   : 	}
+; 79   : 
+; 80   : 	return m_iStatus;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [ecx+12]
 
-; 77   : }
+; 81   : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -2666,29 +2699,32 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File d:\git\githubproject\raven\mini_projet_raven\goals\goal_dodgesidetoside.cpp
 _TEXT	SEGMENT
-tv169 = -12						; size = 4
-tv137 = -8						; size = 4
+tv172 = -16						; size = 4
+tv140 = -12						; size = 4
+_randomnb$ = -8						; size = 4
 _this$ = -4						; size = 4
 ?Activate@Goal_DodgeSideToSide@@UAEXXZ PROC		; Goal_DodgeSideToSide::Activate
 ; _this$ = ecx
 
-; 17   : {
+; 19   : {
 
 	push	ebp
 	mov	ebp, esp
-	sub	esp, 12					; 0000000cH
-	mov	DWORD PTR [ebp-12], -858993460		; ccccccccH
-	mov	DWORD PTR [ebp-8], -858993460		; ccccccccH
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	sub	esp, 16					; 00000010H
+	mov	eax, -858993460				; ccccccccH
+	mov	DWORD PTR [ebp-16], eax
+	mov	DWORD PTR [ebp-12], eax
+	mov	DWORD PTR [ebp-8], eax
+	mov	DWORD PTR [ebp-4], eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 18   :   m_iStatus = active;
+; 20   : 	m_iStatus = active;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+12], 0
 
-; 19   : 
-; 20   :   m_pOwner->GetSteering()->SeekOn();
+; 21   : 
+; 22   : 	m_pOwner->GetSteering()->SeekOn();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+8]
@@ -2696,17 +2732,25 @@ _this$ = -4						; size = 4
 	mov	ecx, eax
 	call	?SeekOn@Raven_Steering@@QAEXXZ		; Raven_Steering::SeekOn
 
-; 21   : 
-; 22   :   
-; 23   :     if (m_bClockwise)
+; 23   : 
+; 24   : 	int randomnb = RandInt(0,1000);
+
+	push	1000					; 000003e8H
+	push	0
+	call	?RandInt@@YAHHH@Z			; RandInt
+	add	esp, 8
+	mov	DWORD PTR _randomnb$[ebp], eax
+
+; 25   : 
+; 26   : 	if (m_bClockwise)
 
 	mov	edx, DWORD PTR _this$[ebp]
 	movzx	eax, BYTE PTR [edx+32]
 	test	eax, eax
 	je	SHORT $LN6@Activate
 
-; 24   :     {
-; 25   :       if (m_pOwner->canStepRight(m_vStrafeTarget))
+; 27   : 	{
+; 28   : 		if (m_pOwner->canStepRight(m_vStrafeTarget))
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 16					; 00000010H
@@ -2718,8 +2762,8 @@ _this$ = -4						; size = 4
 	test	eax, eax
 	je	SHORT $LN5@Activate
 
-; 26   :       {
-; 27   :         m_pOwner->GetSteering()->SetTarget(m_vStrafeTarget);
+; 29   : 		{
+; 30   : 			m_pOwner->GetSteering()->SetTarget(m_vStrafeTarget);
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 16					; 00000010H
@@ -2739,45 +2783,46 @@ _this$ = -4						; size = 4
 	mov	ecx, eax
 	call	?SetTarget@Raven_Steering@@QAEXUVector2D@@@Z ; Raven_Steering::SetTarget
 
-; 28   :       }
-; 29   :       else
+; 31   : 		}
+; 32   : 		else
 
 	jmp	SHORT $LN4@Activate
 $LN5@Activate:
 
-; 30   :       {
-; 31   :         //debug_con << "changing" << "";
-; 32   :         m_bClockwise = !m_bClockwise;
+; 33   : 		{
+; 34   : 			//debug_con << "changing" << "";
+; 35   : 			m_bClockwise = !m_bClockwise;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	movzx	ecx, BYTE PTR [eax+32]
 	test	ecx, ecx
 	jne	SHORT $LN9@Activate
-	mov	DWORD PTR tv137[ebp], 1
+	mov	DWORD PTR tv140[ebp], 1
 	jmp	SHORT $LN10@Activate
 $LN9@Activate:
-	mov	DWORD PTR tv137[ebp], 0
+	mov	DWORD PTR tv140[ebp], 0
 $LN10@Activate:
 	mov	edx, DWORD PTR _this$[ebp]
-	mov	al, BYTE PTR tv137[ebp]
+	mov	al, BYTE PTR tv140[ebp]
 	mov	BYTE PTR [edx+32], al
 
-; 33   :         m_iStatus = inactive;
+; 36   : 			m_iStatus = inactive;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+12], 1
 $LN4@Activate:
 
-; 34   :       }
-; 35   :     }
-; 36   : 
-; 37   :     else
+; 37   : 		}
+; 38   : 	}
+; 39   : 	
+; 40   : 
+; 41   : 	else
 
 	jmp	SHORT $LN7@Activate
 $LN6@Activate:
 
-; 38   :     {
-; 39   :       if (m_pOwner->canStepLeft(m_vStrafeTarget))
+; 42   : 	{
+; 43   : 		if (m_pOwner->canStepLeft(m_vStrafeTarget))
 
 	mov	edx, DWORD PTR _this$[ebp]
 	add	edx, 16					; 00000010H
@@ -2789,8 +2834,8 @@ $LN6@Activate:
 	test	ecx, ecx
 	je	SHORT $LN2@Activate
 
-; 40   :       {
-; 41   :         m_pOwner->GetSteering()->SetTarget(m_vStrafeTarget);
+; 44   : 		{
+; 45   : 			m_pOwner->GetSteering()->SetTarget(m_vStrafeTarget);
 
 	mov	edx, DWORD PTR _this$[ebp]
 	add	edx, 16					; 00000010H
@@ -2810,42 +2855,42 @@ $LN6@Activate:
 	mov	ecx, eax
 	call	?SetTarget@Raven_Steering@@QAEXUVector2D@@@Z ; Raven_Steering::SetTarget
 
-; 42   :       }
-; 43   :       else
+; 46   : 		}
+; 47   : 		else
 
 	jmp	SHORT $LN7@Activate
 $LN2@Activate:
 
-; 44   :       {
-; 45   :        // debug_con << "changing" << "";
-; 46   :         m_bClockwise = !m_bClockwise;
+; 48   : 		{
+; 49   : 			// debug_con << "changing" << "";
+; 50   : 			m_bClockwise = !m_bClockwise;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	movzx	edx, BYTE PTR [ecx+32]
 	test	edx, edx
 	jne	SHORT $LN11@Activate
-	mov	DWORD PTR tv169[ebp], 1
+	mov	DWORD PTR tv172[ebp], 1
 	jmp	SHORT $LN12@Activate
 $LN11@Activate:
-	mov	DWORD PTR tv169[ebp], 0
+	mov	DWORD PTR tv172[ebp], 0
 $LN12@Activate:
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	cl, BYTE PTR tv169[ebp]
+	mov	cl, BYTE PTR tv172[ebp]
 	mov	BYTE PTR [eax+32], cl
 
-; 47   :         m_iStatus = inactive;
+; 51   : 			m_iStatus = inactive;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [edx+12], 1
 $LN7@Activate:
 
-; 48   :       }
-; 49   :     }
-; 50   : 
-; 51   :    
-; 52   : }
+; 52   : 		}
+; 53   : 	}
+; 54   : 
+; 55   : 
+; 56   : }
 
-	add	esp, 12					; 0000000cH
+	add	esp, 16					; 00000010H
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
@@ -2942,7 +2987,7 @@ _this$ = -4						; size = 4
 ?GetTargetSys@Raven_Bot@@QAEQAVRaven_TargetingSystem@@XZ PROC ; Raven_Bot::GetTargetSys, COMDAT
 ; _this$ = ecx
 
-; 208  :   Raven_TargetingSystem* const       GetTargetSys(){return m_pTargSys;}
+; 210  :   Raven_TargetingSystem* const       GetTargetSys(){return m_pTargSys;}
 
 	push	ebp
 	mov	ebp, esp
@@ -2964,7 +3009,7 @@ _this$ = -4						; size = 4
 ?GetSteering@Raven_Bot@@QAEQAVRaven_Steering@@XZ PROC	; Raven_Bot::GetSteering, COMDAT
 ; _this$ = ecx
 
-; 204  :   Raven_Steering* const              GetSteering(){return m_pSteering;}
+; 206  :   Raven_Steering* const              GetSteering(){return m_pSteering;}
 
 	push	ebp
 	mov	ebp, esp
@@ -2977,6 +3022,54 @@ _this$ = -4						; size = 4
 	pop	ebp
 	ret	0
 ?GetSteering@Raven_Bot@@QAEQAVRaven_Steering@@XZ ENDP	; Raven_Bot::GetSteering
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\git\githubproject\raven\common\misc\utils.h
+;	COMDAT ?RandInt@@YAHHH@Z
+_TEXT	SEGMENT
+_x$ = 8							; size = 4
+_y$ = 12						; size = 4
+?RandInt@@YAHHH@Z PROC					; RandInt, COMDAT
+
+; 88   : {
+
+	push	ebp
+	mov	ebp, esp
+
+; 89   :   assert(y>=x && "<RandInt>: y is less than x");
+
+	mov	eax, DWORD PTR _y$[ebp]
+	cmp	eax, DWORD PTR _x$[ebp]
+	jl	SHORT $LN3@RandInt
+	mov	ecx, OFFSET ??_C@_0BM@IMGJFIHE@?$DMRandInt?$DO?3?5y?5is?5less?5than?5x?$AA@
+	test	ecx, ecx
+	jne	SHORT $LN4@RandInt
+$LN3@RandInt:
+	push	89					; 00000059H
+	push	OFFSET ??_C@_1FO@BGAPCGLE@?$AAD?$AA?3?$AA?2?$AAG?$AAi?$AAt?$AA?2?$AAG?$AAi?$AAt?$AAH?$AAu?$AAb?$AAP?$AAr?$AAo?$AAj?$AAe?$AAc?$AAt?$AA?2?$AAR?$AAa?$AAv?$AAe?$AAn?$AA?2?$AAC?$AAo?$AAm?$AAm?$AAo@
+	push	OFFSET ??_C@_1EM@JBDGIPGD@?$AAy?$AA?$DO?$AA?$DN?$AAx?$AA?5?$AA?$CG?$AA?$CG?$AA?5?$AA?$CC?$AA?$DM?$AAR?$AAa?$AAn?$AAd?$AAI?$AAn?$AAt?$AA?$DO?$AA?3?$AA?5?$AAy?$AA?5?$AAi?$AAs?$AA?5?$AAl?$AAe?$AAs?$AAs?$AA?5?$AAt?$AAh@
+	call	__wassert
+	add	esp, 12					; 0000000cH
+$LN4@RandInt:
+
+; 90   :   return rand()%(y-x+1)+x;
+
+	call	_rand
+	mov	ecx, DWORD PTR _y$[ebp]
+	sub	ecx, DWORD PTR _x$[ebp]
+	add	ecx, 1
+	cdq
+	idiv	ecx
+	add	edx, DWORD PTR _x$[ebp]
+	mov	eax, edx
+
+; 91   : }
+
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	pop	ebp
+	ret	0
+?RandInt@@YAHHH@Z ENDP					; RandInt
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File d:\git\githubproject\raven\common\misc\utils.h

@@ -80,11 +80,25 @@ private:
   //must be notified so that they can remove any references to that bot from
   //their memory
   void NotifyAllBotsOfRemoval(Raven_Bot* pRemovedBot)const;
+  int numberBotTeam1;
+  int numberBotTeam2;
+ 
   
 public:
+
   
   Raven_Game();
   ~Raven_Game();
+
+  void increaseTeam1(){this->numberBotTeam1++;}
+  void increaseTeam2(){this->numberBotTeam2++;}
+
+  void decreaseTeam1(){this->numberBotTeam1--;}
+  void decreaseTeam2(){this->numberBotTeam2--;}
+
+  int getNumberOfTeam1(){return this->numberBotTeam1;}
+  int getNumberOfTeam2(){return this->numberBotTeam2;}
+
 
   //the usual suspects
   void Render();
@@ -164,6 +178,8 @@ public:
   void  TagRaven_BotsWithinViewRange(BaseGameEntity* pRaven_Bot, double range)
               {TagNeighbors(pRaven_Bot, m_Bots, range);}  
 };
+
+
 
 
 
